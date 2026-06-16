@@ -2008,7 +2008,7 @@ export function renderStep9({
   _updateSB10Homo(homoResults, { homoSrcCols, csv, homoLibraries, homoSelectedLibId, homoLibEntries });
   _renderC10Body({ csv, colIdx, homoSrcCols, homoTargetMode, homoTargetName, homoTargetColIdx,
     homoLibraries, homoLibEntries, homoLibName, homoSelectedLibId,
-    homoPromptGen, homoPromptMatch, homoSessions });
+    homoPromptGen, homoPromptMatch, homoSessions, homoResults });
   _renderC10Results({ homoResults, homoSrcCols, csv });
   _renderC10Actions({ homoResults, homoLibEntries, homoSrcCols, homoTargetMode, homoTargetName, homoTargetColIdx, homoSessionCount });
 }
@@ -2088,7 +2088,7 @@ function _updateSB10Homo(homoResults, { homoSrcCols = [], csv, homoLibraries = [
 
 function _renderC10Body({ csv, colIdx, homoSrcCols, homoTargetMode, homoTargetName, homoTargetColIdx,
   homoLibraries, homoLibEntries, homoLibName, homoSelectedLibId,
-  homoPromptGen, homoPromptMatch, homoSessions }) {
+  homoPromptGen, homoPromptMatch, homoSessions, homoResults = [] }) {
   const el = $('c10-body');
   if (!el || !csv) return;
   const _twrapScroll = el.querySelector('.twrap')?.scrollTop || 0;
@@ -2284,10 +2284,20 @@ function _renderC10Body({ csv, colIdx, homoSrcCols, homoTargetMode, homoTargetNa
         <button class="btn btn-g btn-sm" id="btn-c10-cancel-homolog" style="display:none">${t('homol.collapse') || 'Cancelar'}</button>
         <span style="flex:1"></span>
         <div id="homo-filter-bar" style="display:flex;gap:4px;flex-wrap:wrap">
-          ${['todas','vacios','completo','variante','ia','manual'].map(f => {
-            const lbl = f === 'todas' ? 'Todas' : f === 'vacios' ? 'Vacíos' : f === 'completo' ? 'Completo' : f === 'variante' ? 'Variante' : f === 'ia' ? 'IA' : 'Manual';
-            return `<button class="fb${_homoFilter === f ? ' on' : ''}" data-hf="${f}" style="font-size:10px;padding:2px 8px">${lbl}</button>`;
-          }).join('')}
+          ${(() => {
+            const homoFilterCounts = {
+              todas:    homoResults.length,
+              vacios:   homoResults.filter(r => !r.canonical).length,
+              completo: homoResults.filter(r => !!r.canonical).length,
+              variante: homoResults.filter(r => r.status === 'js-match').length,
+              ia:       homoResults.filter(r => r.status === 'done' && !!r.canonical).length,
+              manual:   homoResults.filter(r => r.status === 'manual' && !!r.canonical).length,
+            };
+            return ['todas','vacios','completo','variante','ia','manual'].map(f => {
+              const lbl = f === 'todas' ? 'Todas' : f === 'vacios' ? 'Vacíos' : f === 'completo' ? 'Completo' : f === 'variante' ? 'Variante' : f === 'ia' ? 'IA' : 'Manual';
+              return `<button class="fb${_homoFilter === f ? ' on' : ''}" data-hf="${f}" style="font-size:10px;padding:2px 8px">${lbl}<span class="fb-cnt">${homoFilterCounts[f] ?? 0}</span></button>`;
+            }).join('');
+          })()}
         </div>
       </div>
 

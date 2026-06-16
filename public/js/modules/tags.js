@@ -12,9 +12,11 @@ function _normalize(str) {
  * @param {Object} csv - { headers, rows }
  * @param {number} srcColIdx - índice del campo fuente
  * @param {Array}  entries   - [{ value, tag }] — entradas de la librería activa
+ * @param {Set}    dupExcluded  - índices de filas excluidas por duplicado (no entran en el CSV final)
+ * @param {Set}    testExcluded - índices de filas excluidas por palabra clave (no entran en el CSV final)
  * @returns {Array} [{value, tag, status:'match'|'no-match', rowIdxs}]
  */
-export function groupTagResults(csv, srcColIdx, entries) {
+export function groupTagResults(csv, srcColIdx, entries, dupExcluded, testExcluded) {
   if (!csv || srcColIdx < 0) return [];
 
   // Construir mapa de valor normalizado → tag desde la librería
@@ -24,9 +26,10 @@ export function groupTagResults(csv, srcColIdx, entries) {
     if (key) libMap.set(key, entry.tag || '');
   }
 
-  // Agrupar filas por valor del campo fuente
+  // Agrupar filas por valor del campo fuente (excluyendo filas que no van al CSV final)
   const groups = new Map(); // valor original → { rowIdxs[], normalizedKey }
   for (let ri = 0; ri < csv.rows.length; ri++) {
+    if (dupExcluded?.has(ri) || testExcluded?.has(ri)) continue;
     const raw = (csv.rows[ri][srcColIdx] ?? '').toString().trim();
     if (!raw) continue;
     if (!groups.has(raw)) groups.set(raw, { rowIdxs: [], normalizedKey: _normalize(raw) });

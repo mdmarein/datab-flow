@@ -4027,17 +4027,18 @@ async function _tagPersistLibs(libraries) {
 }
 
 function _tagsMatchLib() {
-  const { csv, tagSrcCol, tagLibEntries } = getState();
+  const { csv, tagSrcCol, tagLibEntries, dupExcluded, testExcluded } = getState();
   if (tagSrcCol < 0) { toast(t('tags.no_src') || 'Seleccioná un campo fuente'); return; }
-  const results = groupTagResults(csv, tagSrcCol, tagLibEntries);
+  const results = groupTagResults(csv, tagSrcCol, tagLibEntries, dupExcluded, testExcluded);
   setState({ tagResults: results });
   _renderStep11Full();
 }
 
 async function _tagsRunAI() {
-  const { csv, tagSrcCol, tagResults, tagLibEntries, tagPromptMatch, aiProviders, selectedProviderId } = getState();
+  const { csv, tagSrcCol, tagResults, tagLibEntries, tagPromptMatch, aiProviders, selectedProviderId,
+    dupExcluded, testExcluded } = getState();
   if (tagSrcCol < 0) { toast(t('tags.no_src') || 'Seleccioná un campo fuente'); return; }
-  const unmatched = (tagResults.length ? tagResults : groupTagResults(csv, tagSrcCol, tagLibEntries)).filter(r => !r.tag);
+  const unmatched = (tagResults.length ? tagResults : groupTagResults(csv, tagSrcCol, tagLibEntries, dupExcluded, testExcluded)).filter(r => !r.tag);
   if (!unmatched.length) { toast(t('tags.all_matched') || 'Todos los valores tienen tag'); return; }
 
   const provider = (aiProviders || []).find(p => p.id === selectedProviderId);
@@ -4049,7 +4050,7 @@ async function _tagsRunAI() {
   if (cancelBtn) cancelBtn.style.display = 'none';
   if (runBtn)    runBtn.style.display    = '';
 
-  const baseResults = tagResults.length ? [...tagResults] : groupTagResults(csv, tagSrcCol, tagLibEntries);
+  const baseResults = tagResults.length ? [...tagResults] : groupTagResults(csv, tagSrcCol, tagLibEntries, dupExcluded, testExcluded);
   setState({ tagResults: baseResults });
 
   const libSummary = tagLibEntries.map(e => `"${e.value}" → "${e.tag}"`).join(', ');
