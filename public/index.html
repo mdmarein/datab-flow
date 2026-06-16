@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html id="html-root" lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dataB Flow · Cleaning | Transformation | Governance</title>
+<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
+<link rel="apple-touch-icon" sizes="192x192" href="/img/favicon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/styles.css">
+<script>
+  // Setear idioma antes de que carguen los módulos ES
+  window.__DATAB_LANG = localStorage.getItem('datab-lang') || 'es';
+  document.getElementById('html-root').lang = window.__DATAB_LANG;
+</script>
+</head>
+<body>
+<div class="app">
+
+<!-- Sticky top bar: header + wizard -->
+<div class="sticky-top">
+  <div class="app-inner">
+    <header class="hdr">
+      <div class="logo"><img src="/img/logo.webp" alt="dataB Flow" width="34" height="34"></div>
+      <div class="hdr-t">
+        <h1>dataB <em>Flow</em></h1>
+        <p><i>Cleaning | Transformation | Governance</i></p>
+      </div>
+      <div class="hdr-actions">
+        <div class="hdr-actions-row">
+          <button class="btn-hdr-icon btn-hdr-lang" id="btn-lang" title="Switch to English" aria-label="Switch to English">EN</button>
+          <button class="btn-hdr-icon" id="btn-theme" title="Cambiar tema" aria-label="Cambiar tema">
+            <svg id="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="display:none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.78" y2="4.22"/></svg>
+            <svg id="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+        <div class="hdr-actions-row">
+          <button class="btn-hdr-icon" id="btn-csv-editor" data-i18n-title="header.csv_editor" title="Editor de CSV" aria-label="Editor de CSV">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <span>CSV</span>
+          </button>
+          <button class="btn-hdr-icon" id="btn-learning" data-i18n-title="header.learning" title="Gestionar aprendizaje" aria-label="Gestionar aprendizaje">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+            <span id="btn-learning-label">LEARN</span>
+          </button>
+          <button class="btn-hdr-icon" id="btn-llm-config" data-i18n-title="header.llm" title="Gestionar proveedores LLM">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>LLM</span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Wizard steps bar — generado dinámicamente por buildWizardBar(); oculto durante setup -->
+    <div class="wz hidden" id="wz"></div>
+  </div>
+</div>
+
+<!-- ══ PASO 1: IMPORTAR ══ -->
+<div class="card" id="c1">
+  <div class="card-title" data-i18n="card.import">A — Importar CSV</div>
+  <div class="dz" id="dz">
+    <div class="dz-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg></div>
+    <div class="dz-t" data-i18n="import.drag">Arrastrá el archivo CSV aquí</div>
+    <div class="dz-s"><span data-i18n="import.click_pre">o </span><strong data-i18n="import.click">hacé clic para seleccionar</strong></div>
+  </div>
+  <input type="file" id="fi" accept=".csv,.CSV,.tsv,.TSV">
+  <div class="cfg hidden" id="cfg1">
+    <!-- Fila 1: nombre archivo + cambiar archivo -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+      <span class="fchip" id="fchip">archivo.csv</span>
+      <button class="btn btn-g btn-sm" id="btn-back1" data-i18n="import.change">Cambiar archivo</button>
+    </div>
+    <!-- Fila 2: encoding + desde fila -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <span style="flex:1"></span>
+      <span id="from-row-auto" style="font-size:10px;color:var(--accent);display:none">✦ auto</span>
+      <span style="font-size:12px;color:var(--t1)" data-i18n="import.from_row">Desde Fila:</span>
+      <div class="ep-num-spin">
+        <input type="text" id="from-row-val" class="ep-nsv" value="1"
+               data-min="1" data-max="999" inputmode="numeric">
+        <div class="ep-nsb">
+          <button type="button" id="from-row-up">▴</button>
+          <button type="button" id="from-row-down">▾</button>
+        </div>
+      </div>
+      <span style="width:1px;height:16px;background:var(--border);margin:0 2px"></span>
+      <span style="font-size:12px;color:var(--t1)" data-i18n="import.encoding_lbl">Codificación:</span>
+      <select id="encsel">
+        <option value="utf-8">UTF-8</option>
+        <option value="windows-1252">Windows-1252</option>
+        <option value="iso-8859-1">ISO-8859-1</option>
+        <option value="utf-16le">UTF-16 LE</option>
+        <option value="utf-16be">UTF-16 BE</option>
+        <option value="macintosh">Mac Roman</option>
+      </select>
+    </div>
+    <!-- Fila 3+: vista previa -->
+    <div id="csv-preview1">
+      <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);margin-bottom:6px" data-i18n="import.preview_lbl">Vista previa del archivo</div>
+      <div style="overflow-x:auto;overflow-y:auto;max-height:260px;border:1px solid var(--border);border-radius:var(--rs)">
+        <table id="csv-prev-table" style="min-width:max-content;width:100%;border-collapse:collapse"></table>
+      </div>
+      <div style="display:flex;align-items:center;margin-top:5px">
+        <div id="csv-prev-more" style="font-size:11px;color:var(--t2)"></div>
+        <span style="flex:1"></span>
+        <span style="font-size:11px;color:var(--t1);margin-right:6px" data-i18n="import.preview_count_lbl">Muestra:</span>
+        <div id="prevcnt" style="display:flex;gap:3px">
+          <button class="fb on" data-val="4">4</button>
+          <button class="fb" data-val="16">16</button>
+          <button class="fb" data-val="32">32</button>
+          <button class="fb" data-val="64">64</button>
+          <button class="fb" data-val="0">∞</button>
+        </div>
+      </div>
+    </div>
+    <!-- Fila final: continuar alineado a la derecha -->
+    <div style="display:flex;justify-content:flex-end;margin-top:16px">
+      <button class="btn btn-p btn-sm" id="btn-next1">
+        <span data-i18n="misc.continue">Continuar</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 02: SELECCIÓN DE CAMPOS ══ -->
+<div class="card hidden locked" id="c-fields">
+  <div class="card-title" data-i18n="card.fields">B — Selección de campos</div>
+  <div class="sum-box" id="sb-fields"></div>
+  <div id="col-confirm-strip" style="margin:8px 0 4px;min-height:18px"></div>
+  <div id="fields-list" style="margin:14px 0;max-height:480px;overflow-y:auto"></div>
+  <div class="step-bar">
+    <span id="si-fields" style="font-size:12px;color:var(--t2)"></span>
+    <button class="btn btn-p btn-sm" id="btn-next-fields"><span data-i18n="misc.continue">Continuar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</div>
+
+<!-- ══ PASO 03: ANÁLISIS CSV ══ -->
+<div class="card hidden locked" id="c-analysis">
+  <div class="card-title" data-i18n="card.analysis">C — Análisis del CSV</div>
+  <div class="sum-box" id="sb-analysis"></div>
+  <div id="analysis-list" style="margin:14px 0"></div>
+  <div class="step-bar">
+    <span id="si-analysis" style="font-size:12px;color:var(--t2)"></span>
+    <button class="btn btn-p btn-sm" id="btn-next-analysis"><span data-i18n="misc.continue">Continuar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</div>
+
+<!-- ══ PASO 04: SELECCIÓN DE FLUJO ══ -->
+<div class="card hidden locked" id="c-flow">
+  <div class="card-title" data-i18n="card.flow">D — Selección de flujo</div>
+  <div class="sum-box" id="sb-flow"></div>
+  <div id="flow-groups" style="margin:14px 0"></div>
+  <div class="step-bar">
+    <span id="si-flow" style="font-size:12px;color:var(--t2)"></span>
+    <button class="btn btn-p btn-sm" id="btn-next-flow"><span data-i18n="misc.continue">Continuar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</div>
+
+<!-- ══ PASO 2: REGLAS ══ -->
+<div class="card hidden locked" id="c2">
+  <div class="card-title" id="ct2">
+    <span class="card-num">02</span> — <span data-i18n="rules.title">Reglas de corrección</span>
+    <span class="saved-note hidden" id="saved-note">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/></svg>
+      <span data-i18n="rules.saved">Guardadas</span>
+    </span>
+  </div>
+  <div class="rpanel">
+    <div class="rtabs">
+      <button class="rtab on" data-rt="rules" data-i18n="rules.tab_rules">Reglas custom</button>
+      <button class="rtab" data-rt="suffix" data-i18n="rules.tab_suffix">Terminaciones</button>
+      <button class="rtab" data-rt="whitelist" data-i18n="rules.tab_wl">Dominios válidos</button>
+    </div>
+    <div id="rt-suffix" class="hidden">
+      <div style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n-html="rules.suffix_hint"></div>
+      <div class="radd">
+        <input type="text" id="suffix-from" placeholder="cim" style="width:100px;font-family:var(--mono)">
+        <span style="font-size:11px;color:var(--t2)">→</span>
+        <input type="text" id="suffix-to" placeholder="com" style="width:100px;font-family:var(--mono)">
+        <button class="btn btn-p btn-xs" id="btn-add-suffix" data-i18n="rules.add_btn">+ Agregar</button>
+      </div>
+      <div id="suffix-custom-list"></div>
+      <div id="suffix-default-panel"></div>
+    </div>
+    <div id="rt-rules">
+      <div style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n-html="rules.hint"></div>
+      <div class="radd">
+        <select id="rule-type" style="width:130px"><option value="label">Label</option><option value="full" data-i18n-opt="rules.full_domain">Dominio completo</option></select>
+        <input type="text" id="rule-from" placeholder="gmial  ó  gmail.cm" style="width:180px">
+        <span style="font-size:11px;color:var(--t2)">→</span>
+        <select id="rule-to-prov">
+          <option value="gmail.com">gmail.com</option><option value="hotmail.com">hotmail.com</option>
+          <option value="outlook.com">outlook.com</option><option value="yahoo.com">yahoo.com</option>
+          <option value="_custom" data-i18n-opt="rules.custom_opt">personalizado…</option>
+        </select>
+        <input type="text" id="rule-to-custom" placeholder="dominio.com" class="hidden" style="width:145px">
+        <button class="btn btn-p btn-xs" id="btn-add-rule" data-i18n="rules.add_btn">+ Agregar</button>
+      </div>
+      <div class="rlist" id="rlist"></div>
+      <div id="default-rules-panel"></div>
+    </div>
+    <div id="rt-whitelist" class="hidden">
+      <div style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n-html="rules.wl_hint"></div>
+      <div class="radd">
+        <input type="text" id="wl-input" placeholder="dominio.com ó dominio.com.*" style="width:240px">
+        <button class="btn btn-p btn-xs" id="btn-add-wl" data-i18n="rules.add_btn">+ Agregar</button>
+      </div>
+      <div id="wl-custom-list" style="display:flex;flex-wrap:wrap;gap:4px"></div>
+      <div id="wl-default-panel"></div>
+    </div>
+  </div>
+  <div class="step-bar">
+    <span class="step-info" id="si2">Reglas custom: <strong>0</strong></span>
+    <button class="btn btn-p btn-sm" id="btn-next2"><span data-i18n="misc.continue">Continuar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+  </div>
+</div>
+
+<!-- ══ PASO 3: VALIDACIÓN ══ -->
+<div class="card hidden locked" id="c3">
+  <div class="card-title" id="ct3"><span class="card-num">03</span> — <span data-i18n="val.title">Validación de formato</span></div>
+  <div class="sum-box" id="sb3"></div>
+  <div class="atb" id="atb3">
+    <button class="btn btn-g btn-xs on" id="v-all" data-i18n="val.select_all">✓ Todos</button>
+    <button class="btn btn-g btn-xs" id="v-none" data-i18n="val.select_none">✗ Ninguno</button>
+    <div class="sp"></div>
+    <button class="fb on" data-vf="all" data-i18n="filter.all">Todos</button>
+    <button class="fb" data-vf="invalido" data-i18n="filter.invalid">Inválidos</button>
+    <button class="fb" data-vf="translit" data-i18n="filter.translit">Acentos</button>
+    <button class="fb" data-vf="mayus" data-i18n="filter.uppercase">Mayúsculas</button>
+    <button class="fb" data-vf="espacios" data-i18n="filter.spaces">Espacios</button>
+  </div>
+  <div class="twrap" id="tw3" style="max-height:450px;overflow-y:auto">
+    <table>
+      <thead><tr>
+        <th><div class="cbc"><input type="checkbox" id="vca"></div></th>
+        <th data-i18n="val.col_row">Fila</th><th data-i18n="val.col_original">Email original</th>
+        <th data-i18n="val.col_problems">Problemas</th>
+        <th><span data-i18n="val.col_fix">Corrección auto-sugerida</span> <span style="font-size:9px;color:var(--t2);font-weight:400" data-i18n="val.col_fix_hint">(✎ editable)</span></th>
+      </tr></thead>
+      <tbody id="vbody"></tbody>
+    </table>
+  </div>
+  <div class="step-bar">
+    <span class="step-info" id="si3">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-p btn-sm" id="btn-next3"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 4: DOMINIOS ══ -->
+<div class="card hidden locked" id="c4">
+  <div class="card-title" id="ct4"><span class="card-num">04</span> — <span data-i18n="dom.title">Corrección de dominios</span></div>
+  <div class="sum-box" id="sb4"></div>
+  <div class="atb" id="atb4">
+    <button class="btn btn-g btn-xs on" id="d-all" data-i18n="dom.select_all">✓ Todos</button>
+    <button class="btn btn-g btn-xs" id="d-none" data-i18n="dom.select_none">✗ Ninguno</button>
+    <div class="sp"></div>
+    <button class="fb on" data-df="all" data-i18n="filter.all">Todos</button>
+    <div id="dom-pf" style="display:contents"></div>
+  </div>
+  <div class="twrap" id="tw4" style="max-height:450px;overflow-y:auto">
+    <table>
+      <thead><tr>
+        <th><div class="cbc"><input type="checkbox" id="dca"></div></th>
+        <th data-i18n="val.col_row">Fila</th><th data-i18n="dom.col_original">Email original</th>
+        <th><span data-i18n="dom.col_fix">Corrección sugerida</span> <span style="font-size:9px;color:var(--t2);font-weight:400" data-i18n="dom.col_fix_hint">(✎ editable)</span></th>
+        <th data-i18n="dom.col_provider">Proveedor</th>
+      </tr></thead>
+      <tbody id="dbody"></tbody>
+    </table>
+  </div>
+  <div class="step-bar">
+    <span class="step-info" id="si4">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-export-dom btn-sm" id="btn-export-domains">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        <span data-i18n="dom.export_btn">Correcciones</span>
+      </button>
+      <button class="btn btn-p btn-sm" id="btn-next4"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 5: DUPLICADOS ══ -->
+<div class="card hidden locked" id="c5">
+  <div class="card-title" id="ct5"><span class="card-num">05</span> — <span data-i18n="dup.title">Eliminación de duplicados</span></div>
+  <div class="sum-box" id="sb5"></div>
+
+  <!-- Selector de columnas -->
+  <div style="background:var(--s2);border:1px solid var(--border);border-radius:var(--rs);padding:13px 15px;margin-bottom:14px">
+    <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--t2);margin-bottom:8px" data-i18n="dup.fields_label">Campos que deben coincidir para considerar duplicado:</div>
+    <div class="col-chips" id="col-chips"></div>
+  </div>
+
+  <div class="atb" id="atb5">
+    <span style="font-size:11px;color:var(--t1)" id="dup-sum">—</span>
+    <div class="sp"></div>
+    <button class="btn btn-g btn-xs" id="btn-kf" data-i18n="dup.keep_first">↑ Mantener primero</button>
+    <button class="btn btn-g btn-xs" id="btn-kl" data-i18n="dup.keep_last">↓ Mantener último</button>
+    <button class="btn btn-g btn-xs" id="btn-kc" data-i18n="dup.keep_complete">★ Mantener completo</button>
+  </div>
+  <div class="dgrps" id="dgrps"></div>
+
+  <div class="step-bar">
+    <span class="step-info" id="si5">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-skip btn-sm" id="btn-skip5"><span data-i18n="misc.skip">Omitir</span></button>
+      <button class="btn btn-p btn-sm" id="btn-next5"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 6: FILAS DE PRUEBA ══ -->
+<div class="card hidden locked" id="c6">
+  <div class="card-title" id="ct6"><span class="card-num">06</span> — <span data-i18n="kw.title">Eliminación correos por palabra clave</span></div>
+  <div class="sum-box" id="sb6"></div>
+  <div id="test-pattern-panel"></div>
+  <div id="t6-bar"></div>
+  <div id="test-list"></div>
+  <div class="step-bar">
+    <span class="step-info" id="si6">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-p btn-sm" id="btn-next6"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 9 → ahora 4: COMPLETAR NOMBRE/APELLIDO CON IA ══ -->
+<div class="card hidden locked" id="c9">
+  <div class="card-title" id="ct9"><span class="card-num">04</span> — <span data-i18n="nameai.title">Completar Nombre y Apellido con IA</span></div>
+  <div id="c9-ollama-status"></div>
+  <div class="sum-box" id="sb9"></div>
+  <div id="c9-action" style="margin:12px 0"></div>
+  <div id="c9-progress" style="margin:8px 0"></div>
+  <div class="atb" id="atb9"></div>
+  <div id="c9-table"></div>
+  <div class="step-bar">
+    <div class="step-bar-actions">
+      <button class="btn btn-p btn-sm" id="btn-next9"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 7 → ahora 5: NORMALIZAR EMPRESA ══ -->
+<div class="card hidden locked" id="c7">
+  <div class="card-title" id="ct7" style="display:flex;align-items:center">
+    <span><span class="card-num">05</span> — <span data-i18n="comp.title">Normalizar empresa</span></span>
+    <span style="display:flex;align-items:center;gap:6px;margin-left:auto">
+      <span style="font-size:12px;font-weight:400;color:var(--t1);text-transform:none;letter-spacing:0" data-i18n="comp.col_label">Columna empresa:</span>
+      <select id="empresa-col-sel"></select>
+    </span>
+  </div>
+  <div class="sum-box" id="sb7"></div>
+  <div id="homologate-panel"></div>
+  <div id="junk-panel"></div>
+  <div class="atb" id="atb7"></div>
+  <div id="comp-list"></div>
+  <div class="step-bar">
+    <span class="step-info" id="si7">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-skip btn-sm" id="btn-skip7"><span data-i18n="misc.skip">Omitir</span></button>
+      <button class="btn btn-p btn-sm" id="btn-next7"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 8 → ahora 6: PAÍS Y TELÉFONO ══ -->
+<div class="card hidden locked" id="c8">
+  <div class="card-title" id="ct8"><span class="card-num">06</span> — <span data-i18n="country.title">País y teléfono</span></div>
+  <div class="sum-box" id="sb8"></div>
+  <div id="step8-panel"></div>
+  <div class="step-bar">
+    <span class="step-info" id="si8">—</span>
+    <div class="step-bar-actions">
+      <button class="btn btn-skip btn-sm" id="btn-skip8"><span data-i18n="misc.skip">Omitir</span></button>
+      <button class="btn btn-p btn-sm" id="btn-next8"><span data-i18n="misc.apply">Aplicar</span> <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PASO 10: HOMOLOGACIÓN DE CAMPOS ══ -->
+<div id="homo-sessions-container"></div>
+<div class="card hidden locked" id="c10">
+  <div class="card-title" id="ct10"><span class="card-num">10</span> — <span data-i18n="homol.title">Homologación de campos</span></div>
+  <div id="c10-ai-status"></div>
+  <div class="sum-box" id="sb10"></div>
+  <div id="c10-body"></div>
+  <div id="c10-progress"></div>
+  <div id="c10-results"></div>
+  <div class="step-bar">
+    <div class="step-bar-actions" id="c10-actions"></div>
+  </div>
+</div>
+
+<div class="card hidden locked" id="c11">
+  <div class="card-title" id="ct11"><span class="card-num">11</span> — <span data-i18n="tags.title">Etiquetar por valor en campo</span></div>
+  <div id="c11-ai-status"></div>
+  <div class="sum-box" id="sb11"></div>
+  <div id="c11-body"></div>
+  <div id="c11-progress"></div>
+  <div id="c11-results"></div>
+  <div class="step-bar">
+    <div class="step-bar-actions" id="c11-actions"></div>
+  </div>
+</div>
+
+<!-- ══ RESUMEN FINAL (aparece tras exportar) ══ -->
+<div class="res-card hidden" id="res-card">
+  <div class="res-card-hdr">
+    <div class="res-card-hdr-icon">
+      <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    </div>
+    <span class="res-card-title" data-i18n="res.title">Resumen del proceso</span>
+    <span class="res-card-sub" id="res-filename">—</span>
+  </div>
+
+  <!-- Insights de aprendizaje -->
+  <div class="insights-wrap" id="res-insights" style="display:none"></div>
+
+  <!-- Score de calidad -->
+  <div class="score-row">
+    <div class="score-ring-wrap">
+      <svg width="84" height="84" viewBox="0 0 84 84">
+        <circle class="score-ring-bg" cx="42" cy="42" r="34"/>
+        <circle class="score-ring-fg" id="score-ring" cx="42" cy="42" r="34" stroke-dasharray="213.6" stroke-dashoffset="213.6"/>
+      </svg>
+      <div class="score-center">
+        <span class="score-pct" id="score-pct">—</span>
+        <span class="score-lbl" data-i18n="res.quality_lbl">calidad</span>
+      </div>
+    </div>
+    <div class="score-info">
+      <div class="score-grade" id="score-grade">—</div>
+      <div class="score-desc" id="score-desc">—</div>
+    </div>
+  </div>
+
+  <!-- Tabla de resumen -->
+  <div class="res-rows" id="res-rows"></div>
+
+  <!-- Preview de primeras filas -->
+  <div class="prev-section">
+    <div class="prev-section-title" data-i18n="res.preview_title">Vista previa del CSV final</div>
+    <div class="prev-scroll" style="overflow-y:auto;max-height:260px">
+      <table class="prev-table" id="prev-table"></table>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:flex-end;margin-top:5px">
+      <span style="font-size:11px;color:var(--t1);margin-right:6px" data-i18n="import.preview_count_lbl">Muestra:</span>
+      <div id="res-prevcnt" style="display:flex;gap:3px">
+        <button class="fb on" data-val="5">5</button>
+        <button class="fb" data-val="16">16</button>
+        <button class="fb" data-val="32">32</button>
+        <button class="fb" data-val="64">64</button>
+        <button class="fb" data-val="0">∞</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones de export -->
+  <div class="export-row">
+    <span class="export-row-lbl" id="preview-total-label">Archivos listos para descargar:</span>
+    <button class="btn btn-oa" id="btn-dl-main" style="font-weight:600">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span data-i18n="res.btn_csv">CSV corregido</span>
+    </button>
+    <button class="btn btn-g" id="btn-dl-unified">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span data-i18n="res.btn_log">Log completo</span>
+    </button>
+    <button class="btn btn-g" id="btn-restart" style="margin-left:auto">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/></svg>
+      <span data-i18n="res.btn_new">Nuevo proceso</span>
+    </button>
+  </div>
+</div>
+</div>
+
+<div class="footer"><strong>dataB <em>Flow</em></strong><span style="color:#a0a0a0"> · </span><i>Cleaning | Transformation | Governance</i><span style="color:#a0a0a0"> · </span><span class="footer-year">© 2026</span> <span style="color:var(--accent)">mdmarein</span><span style="color:#a0a0a0"> · </span><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:#a0a0a0;text-decoration:none">GNU AGPLv3</a></div>
+
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="tmsg"></span></div>
+
+<!-- ══ MODAL: Gestionar Proveedores LLM ══ -->
+<div class="modal-overlay hidden" id="llm-modal">
+  <div class="modal-box">
+    <div class="modal-hdr">
+      <span class="modal-title" data-i18n="misc.llm_modal_title">Gestionar Proveedores LLM</span>
+      <button class="btn-modal-close" id="btn-modal-close" data-i18n-title="misc.modal_close" title="Cerrar">✕</button>
+    </div>
+    <div class="modal-body" id="llm-modal-body"></div>
+    <div class="modal-footer" id="llm-modal-footer"></div>
+  </div>
+</div>
+
+<!-- ══ MODAL: Learning ══ -->
+<div class="modal-overlay hidden" id="learning-modal">
+  <div class="modal-box" style="max-width:230px">
+    <div class="modal-hdr">
+      <span class="modal-title" data-i18n-html="learning.modal_title">Aprendizaje <span style="color:var(--accent)">FLOW</span></span>
+      <button class="btn-modal-close" id="btn-learning-modal-close" title="Cerrar">✕</button>
+    </div>
+    <div class="modal-body" style="display:flex;flex-direction:column;gap:8px;padding:16px 20px;align-items:center">
+
+      <input type="file" id="learning-import-file" accept=".json" style="display:none">
+
+      <!-- Exportar -->
+      <div class="lrn-row">
+        <button class="btn btn-g lrn-btn" id="btn-learning-export">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span data-i18n="learning.export_btn">Exportar</span>
+        </button>
+        <div class="lrn-tip" data-i18n="learning.export_desc">Descargá el archivo de aprendizaje actual como respaldo.</div>
+      </div>
+
+      <!-- Caja Archivo + Importar -->
+      <div style="border:1px solid var(--border);border-radius:var(--rs);padding:10px 8px;display:flex;flex-direction:column;align-items:center;gap:2px">
+        <div class="lrn-row" style="align-items:center">
+          <button class="btn btn-g lrn-btn" id="btn-learning-import-pick">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+            <span data-i18n="learning.import_btn">Archivo</span>
+          </button>
+          <div class="lrn-tip" data-i18n="learning.import_pick_tip">Seleccioná el .json a importar</div>
+        </div>
+        <div id="learning-import-filename" style="font-size:11px;color:var(--t2);text-align:center"></div>
+        <div class="lrn-row" style="align-items:center">
+          <button class="btn lrn-btn lrn-import-btn" id="btn-learning-import-apply" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+            <span data-i18n="learning.import_apply">Importar</span>
+          </button>
+          <div class="lrn-tip lrn-tip-accent" data-i18n="learning.import_tip">Reemplaza Aprendizaje Actual</div>
+        </div>
+      </div>
+
+      <!-- Resetear -->
+      <div class="lrn-row lrn-reset-row">
+        <button class="btn lrn-btn lrn-reset-btn" id="btn-learning-reset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.35"/></svg>
+          <span data-i18n="learning.reset_btn">Resetear</span>
+        </button>
+        <div class="lrn-tip lrn-tip-warn" data-i18n="learning.reset_tip">CUIDADO: Irreversible, elimina aprendizaje</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ MODAL: CSV Editor ══ -->
+<div class="modal-editor hidden" id="csv-editor-modal">
+  <div class="editor-box">
+    <!-- Header -->
+    <div class="editor-hdr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0;color:var(--t2)"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;overflow:hidden">
+        <span class="editor-hdr-title" data-i18n="editor.title" style="flex:0 0 auto">Editor de CSV</span>
+        <span class="editor-hdr-file" id="editor-filename" style="margin-left:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0"></span>
+      </div>
+      <div class="editor-hdr-actions">
+        <button class="btn btn-g btn-xs" id="btn-editor-undo" title="Deshacer" data-i18n-title="editor.undo_title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+          <span data-i18n="editor.undo">Deshacer</span>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-redo" data-i18n-title="editor.redo_title" title="Rehacer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 1 4-4h12"/></svg>
+          <span data-i18n="editor.redo">Rehacer</span>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-saveas" title="Guardar como CSV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-window" title="Abrir en otra ventana" data-i18n-title="editor.open_window">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-close" title="Cerrar" data-i18n-title="editor.close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Body -->
+    <div class="editor-body">
+      <!-- Sidebar izquierda -->
+      <div class="editor-sidebar collapsed" id="editor-sidebar">
+        <div class="editor-sb-toggle">
+          <button id="btn-sidebar-toggle" title="Expandir / Colapsar herramientas">
+            <svg id="sb-icon-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="display:none"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg id="sb-icon-collapse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="editor-sb-tools" id="editor-sb-tools">
+          <!-- Generado por csv-editor.js -->
+        </div>
+      </div>
+      <!-- Área de tabla -->
+      <div class="editor-table-area">
+        <div class="editor-table-scroll" id="editor-table-scroll">
+          <table class="editor-tbl" id="editor-tbl"></table>
+        </div>
+        <!-- Footer: muestra + paginación -->
+        <div class="editor-footer">
+          <div class="editor-footer-left">
+            <span style="font-size:11px;color:var(--t2)" data-i18n="import.preview_count_lbl">Muestra:</span>
+            <div id="editor-page-size" style="display:flex;gap:3px">
+              <button class="fb" data-val="4">4</button>
+              <button class="fb" data-val="8">8</button>
+              <button class="fb on" data-val="16">16</button>
+              <button class="fb" data-val="32">32</button>
+              <button class="fb" data-val="64">64</button>
+              <button class="fb" data-val="0">∞</button>
+            </div>
+            <span id="editor-rows-info" style="font-size:11px;color:var(--t2)"></span>
+          </div>
+          <div class="editor-footer-right">
+            <div class="editor-page-nav">
+              <button class="editor-page-btn" id="editor-page-prev">◀</button>
+              <span class="editor-page-lbl" id="editor-page-lbl"></span>
+              <button class="editor-page-btn" id="editor-page-next">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>

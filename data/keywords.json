@@ -1,0 +1,15 @@
+{
+  "patterns": [
+    "nadie",
+    "nobody",
+    "aaaa",
+    "1234",
+    "example",
+    "error",
+    "no-replay",
+    "prueba",
+    "noreplay",
+    "test"
+  ],
+  "version": 1
+}

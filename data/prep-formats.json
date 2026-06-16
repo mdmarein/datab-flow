@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "number": [
+    "00",
+    "0",
+    "0.0",
+    "0,00"
+  ],
+  "currency": [],
+  "percent": [],
+  "date": [
+    "dd/mm/yyyy",
+    "dd/mm/yy",
+    "dd-mm-yyyy",
+    "dd-mm-yy"
+  ]
+}

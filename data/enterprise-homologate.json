@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "find": "srl",
+      "replace": "SRL"
+    },
+    {
+      "find": "sas",
+      "replace": "SAS"
+    },
+    {
+      "find": "mmo",
+      "replace": ""
+    },
+    {
+      "find": ".com*",
+      "replace": ""
+    },
+    {
+      "find": ".",
+      "replace": ""
+    },
+    {
+      "find": "cia",
+      "replace": "CIA"
+    },
+    {
+      "find": "spa",
+      "replace": "SPA"
+    },
+    {
+      "find": "sac",
+      "replace": "SAC"
+    },
+    {
+      "find": "sa",
+      "replace": "SA"
+    },
+    {
+      "find": "*s a",
+      "replace": "SA"
+    },
+    {
+      "find": "propia",
+      "replace": ""
+    },
+    {
+      "find": ",",
+      "replace": ""
+    },
+    {
+      "find": "c v",
+      "replace": "CV"
+    }
+  ]
+}

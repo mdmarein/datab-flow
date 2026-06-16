@@ -1,0 +1,17 @@
+.DS_Store
+.claude/
+node_modules/
+*.csv
+
+# Archivos de instrucciones para AI — nunca subir al repo
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+
+# Datos locales generados con el uso — esqueletos vacíos en el repo, cambios locales ignorados vía skip-worktree
+data/learning.json
+data/rules.json
+data/flow-config.json
+data/field-homologated.json
+data/field-tags.json
+.claudemux-*

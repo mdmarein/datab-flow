@@ -1,0 +1,30 @@
+{
+  "junkCompanies": [
+    "casa",
+    "comercio",
+    "empresa",
+    "nop",
+    "no",
+    "*admin*",
+    "*afici*",
+    "*arquitect*",
+    "*carp*",
+    "*consum*",
+    "*emprend*",
+    "*estudi*",
+    "*lance*",
+    "*indep*",
+    "*trabaj*",
+    "autónom*",
+    "no tengo*"
+  ],
+  "junkExclusions": [
+    ".",
+    "-",
+    "/",
+    "x",
+    "–",
+    "—"
+  ],
+  "version": 1
+}

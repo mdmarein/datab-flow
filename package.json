@@ -1,0 +1,17 @@
+{
+  "name": "datab-flow",
+  "version": "2.0.0",
+  "description": "dataB Flow · Cleaning | Transformation | Governance — Email list cleaning and transformation tool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "keywords": ["email", "cleaner", "csv", "deduplication", "data-governance"],
+  "author": "mdmarein",
+  "license": "AGPL-3.0-only",
+  "dependencies": {}
+}

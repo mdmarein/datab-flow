@@ -1,0 +1,24 @@
+{
+  "url": "http://localhost:11434/v1/chat/completions",
+  "model": "llama3.1:latest",
+  "temperature": 0.2,
+  "top_p": 0.9,
+  "seed": 42,
+  "maxTokens": 256,
+  "prompt": "Dado este contacto con información parcial, completá el dato faltante.\n\nEmail: {{EMAIL}}\nNombre actual: {{NOMBRE}}\nApellido actual: {{APELLIDO}}\n\nINSTRUCCIONES:\n1. Analizá el usuario del email (parte antes del @) como pista principal\n2. Patrón inicial+apellido: si el usuario empieza con una sola letra seguida de letras (ej: amejias, jperez, alarcon) y hay un nombre o apellido cargado que empieza con esa misma letra, interpretá el resto como el dato faltante (ej: nombre=Andres + email=amejias → apellido=Mejias)\n3. Si el usuario tiene punto (ej: juan.perez, maria.garcia): la primera parte es nombre, la segunda apellido — ignorá partes genéricas como: proyectos, ventas, info, admin, web, marketing, no-reply, contacto\n4. NUNCA uses el dominio ni el proveedor de email\n5. Solo completá el campo que falta — si ya hay nombre devolvé solo el apellido (y viceversa); si faltan ambos intentá extraer los dos\n6. Capitalizá correctamente (primera letra mayúscula, resto minúscula — respetá caracteres especiales como ñ, tildes)\n7. Si no podés determinar con confianza → devolvé vacío para ese campo\n8. Responde ÚNICAMENTE con JSON, sin texto adicional\n\nResponde con: {\"firstName\":\"\",\"lastName\":\"\"}",
+  "fieldHomolPrompt": "Sos un especialista en homologación de datos de contactos B2B.\nTu tarea: analizar los {{COUNT}} valores únicos del campo \"{{FIELD_NAME}}\" y reducirlos a la MENOR cantidad posible de grupos canónicos que tengan sentido semántico para ese tipo de campo.\n\nCampo: {{FIELD_NAME}}\nValores ({{COUNT}} únicos):\n{{VALUES}}\n\nINSTRUCCIONES:\n1. REDUCCIÓN MÁXIMA: agrupá todo lo que represente el mismo concepto real. Si hay duda, agrupá. El objetivo es reducir al mínimo.\n2. MISMO CONCEPTO: variantes de género (Arquitecto/Arquitecta → Arquitecto), idioma (Manager/Gerente → Gerente), mayúsculas/minúsculas, errores tipográficos, abreviaturas, plural/singular.\n3. CARGOS/PUESTOS: roles equivalentes van en el mismo grupo. Ej: \"CEO\", \"Director Ejecutivo\", \"Director General\" → Director \"Gerente de Marketing\", \"Marketing Manager\", \"Gerente Mktg\" → Martketing\n4. INDUSTRIAS/SECTORES: sectores equivalentes van juntos. Ej: \"Tecnología\", \"IT\", \"TI\", \"Tech\", \"Informática\" → IT\n5. ACTIVIDADES/RUBROS: actividades del mismo rubro van juntas aunque tengan nombres distintos.\n6. SIMIL: contiene el valor original una palabra simil. Ej: \"Coordinador\", \"Jefe\", \"jefa\", \"Poyectista\" → Jefe de Proyecto\n6. VALOR CANÓNICO: español, primera letra mayúscula por palabra principal, forma más completa y profesional. Para género: usar forma masculina según convención del campo.\n7. No mantengás grupos con un solo valor si ese valor es variante obvia de otro grupo.\n\nRESPONDÉ ÚNICAMENTE con JSON válido (sin texto, sin markdown, sin comentarios):\n{\"groups\":[{\"canonical\":\"Valor Canónico\",\"values\":[\"variante1\",\"variante2\"]}]}",
+  "providers": [
+    {
+      "id": "pmppogmv6",
+      "label": "Llama3.1 Latest",
+      "url": "http://localhost:11434/v1/chat/completions",
+      "model": "llama3.1:latest",
+      "apiKey": "ollama",
+      "temperature": 0.2,
+      "top_p": 0.9,
+      "seed": 42,
+      "maxTokens": 8192,
+      "waitTime": 0
+    }
+  ]
+}

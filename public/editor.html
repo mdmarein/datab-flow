@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html id="editor-html-root" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>dataB Flow — Editor de CSV</title>
+  <script>
+    window.__DATAB_LANG = localStorage.getItem('datab-lang') || 'es';
+    document.getElementById('editor-html-root').lang = window.__DATAB_LANG;
+  </script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    html,body{margin:0;padding:0;height:100%;overflow:hidden}
+    body{display:flex;flex-direction:column}
+    /* En ventana standalone el modal ocupa todo el viewport */
+    .modal-editor{position:relative;inset:auto;background:none;padding:0;display:flex;flex:1;overflow:hidden}
+    .editor-box{border-radius:0;border-left:none;border-right:none;border-top:none}
+  </style>
+</head>
+<body>
+<div class="modal-editor" id="csv-editor-modal" style="display:flex">
+  <div class="editor-box">
+    <div class="editor-hdr">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0;color:var(--t2)"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;overflow:hidden">
+        <span class="editor-hdr-title" id="editor-title" data-i18n="editor.title" style="flex:0 0 auto">Editor de CSV</span>
+        <span class="editor-hdr-file" id="editor-filename" style="margin-left:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0"></span>
+      </div>
+      <div class="editor-hdr-actions">
+        <button class="btn btn-g btn-xs" id="btn-editor-undo" data-i18n-title="editor.undo_title" title="Deshacer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+          <span data-i18n="editor.undo">Deshacer</span>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-redo" data-i18n-title="editor.redo_title" title="Rehacer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><polyline points="15 14 20 9 15 4"/><path d="M4 20v-7a4 4 0 0 1 4-4h12"/></svg>
+          <span data-i18n="editor.redo">Rehacer</span>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-saveas" data-i18n-title="editor.saveas_title" title="Guardar como CSV">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="btn btn-g btn-xs" id="btn-editor-closewin" data-i18n-title="editor.close_win" title="Cerrar ventana">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <span style="font-size:11px;margin-left:8px" id="editor-sync-status"></span>
+      </div>
+    </div>
+    <div class="editor-body">
+      <div class="editor-sidebar collapsed" id="editor-sidebar">
+        <div class="editor-sb-toggle">
+          <button id="btn-sidebar-toggle">
+            <svg id="sb-icon-expand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="display:none"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg id="sb-icon-collapse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="editor-sb-tools" id="editor-sb-tools"></div>
+      </div>
+      <div class="editor-table-area">
+        <div class="editor-table-scroll" id="editor-table-scroll">
+          <table class="editor-tbl" id="editor-tbl"></table>
+        </div>
+        <div class="editor-footer">
+          <div class="editor-footer-left">
+            <span style="font-size:11px;color:var(--t2)" data-i18n="editor.sample_lbl">Muestra:</span>
+            <div id="editor-page-size" style="display:flex;gap:3px">
+              <button class="fb" data-val="4">4</button>
+              <button class="fb" data-val="8">8</button>
+              <button class="fb on" data-val="16">16</button>
+              <button class="fb" data-val="32">32</button>
+              <button class="fb" data-val="64">64</button>
+              <button class="fb" data-val="0">∞</button>
+            </div>
+            <span id="editor-rows-info" style="font-size:11px;color:var(--t2)"></span>
+          </div>
+          <div class="editor-footer-right">
+            <div class="editor-page-nav">
+              <button class="editor-page-btn" id="editor-page-prev">◀</button>
+              <span class="editor-page-lbl" id="editor-page-lbl"></span>
+              <button class="editor-page-btn" id="editor-page-next">▶</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="tmsg"></span></div>
+<script type="module" src="/js/editor-standalone.js"></script>
+</body>
+</html>

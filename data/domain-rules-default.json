@@ -1,0 +1,1691 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "type": "label",
+      "from": "amail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "fmail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gamil",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+   {
+      "type": "label",
+      "from": "gmaio",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+   {
+      "type": "label",
+      "from": "gmmail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gimail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmai",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmaik",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmaile",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gamail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmal",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmali",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmaul",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmial",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gmil",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gomail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "hmail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "imail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mai",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mal",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "male",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "meil",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mgail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mial",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mil",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "ml",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mlai",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "mlia",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "nail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "nial",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "vmail",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.co",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.ar",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.br",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.cl",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.co",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.mx",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.com.pe",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.net",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "full",
+      "from": "gmail.org",
+      "to": "gmail.com",
+      "provider": "gmail"
+    },
+    {
+      "type": "label",
+      "from": "gotmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hoitmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "homail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+   {
+      "type": "label",
+      "from": "hotgmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotamail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmai",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmaik",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmaill",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmaio",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmak",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmal",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmali",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmall",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmaol",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmaul",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmeil",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmial",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmil",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmqil",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotmsil",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hotnail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "htmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "htomail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "itmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "jotmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "omail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "oymail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "ptmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "rmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "utmail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "hormail",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "full",
+      "from": "hotmail.co",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "full",
+      "from": "hotmail.net",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "full",
+      "from": "hotmail.org",
+      "to": "hotmail.com",
+      "provider": "hotmail"
+    },
+    {
+      "type": "label",
+      "from": "loc",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "lock",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "lok",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "looc",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "loock",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "louk",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "loutlook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "luck",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "luk",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "luok",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "olook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "otlok",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "otlook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "otulook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "ourlook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outllok",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outlok",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outlokk",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outloo",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outlooc",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outloock",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outlookk",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "outook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "ulook",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "full",
+      "from": "outlook.co",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "full",
+      "from": "outlook.net",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "full",
+      "from": "outlook.org",
+      "to": "outlook.com",
+      "provider": "outlook"
+    },
+    {
+      "type": "label",
+      "from": "aoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "auo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "hhoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "hu",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "huo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "iahoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "ihoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "joo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "ohoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "uhoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaaho",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaaoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaboo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yacoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yahho",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaho",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yahooo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yajoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yanoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaoho",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yaop",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yehoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yhaoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yhoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "yyahoo",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "full",
+      "from": "yahoo.co",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "full",
+      "from": "yahoo.net",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "full",
+      "from": "yahoo.org",
+      "to": "yahoo.com",
+      "provider": "yahoo"
+    },
+    {
+      "type": "label",
+      "from": "acloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "aicloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ciloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "cluod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "eicloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icccloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iccoud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclaud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icld",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icliud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclld",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclodu",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloef",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloid",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclooud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclou",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloub",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloud1",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloudc",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloudd",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloude",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloudi",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclouds",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclouf",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclouj",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclould",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclound",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloundd",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclous",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclouud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclouw",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloux",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icloyd",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclpud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icludo",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iclued",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icluod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "icoud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iculod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iculoud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iicloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iklod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ikloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iklouud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ilcoud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "iloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ivloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ixloud",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ycluod",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "full",
+      "from": "icloud.co",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "full",
+      "from": "icloud.es",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "full",
+      "from": "icloud.io",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "full",
+      "from": "icloud.net",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "full",
+      "from": "icloud.org",
+      "to": "icloud.com",
+      "provider": "icloud"
+    },
+    {
+      "type": "label",
+      "from": "ail",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "aaol",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "alo",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "ao",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "aol1",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "aoll",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "aool",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "oal",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "full",
+      "from": "aol.co",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "full",
+      "from": "aol.net",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "full",
+      "from": "aol.org",
+      "to": "aol.com",
+      "provider": "aol"
+    },
+    {
+      "type": "label",
+      "from": "ive",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "lie",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "liev",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "liv",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "livee",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "livve",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "llive",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "lve",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "full",
+      "from": "live.co",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "full",
+      "from": "live.net",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "full",
+      "from": "live.org",
+      "to": "live.com",
+      "provider": "live"
+    },
+    {
+      "type": "label",
+      "from": "mns",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "label",
+      "from": "nsm",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "label",
+      "from": "smn",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "full",
+      "from": "msn.co",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "full",
+      "from": "msn.net",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "full",
+      "from": "msn.org",
+      "to": "msn.com",
+      "provider": "msn"
+    },
+    {
+      "type": "label",
+      "from": "yamail",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymaill",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymal",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymali",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymaol",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymial",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "label",
+      "from": "ymil",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "full",
+      "from": "ymail.co",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "full",
+      "from": "ymail.net",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "full",
+      "from": "ymail.org",
+      "to": "ymail.com",
+      "provider": "ymail"
+    },
+    {
+      "type": "full",
+      "from": "mai.ru",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mail.ruu",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mail.rv",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mail.ry",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mail.ur",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "maill.ru",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mal.ru",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "full",
+      "from": "mial.ru",
+      "to": "mail.ru",
+      "provider": "mail.ru"
+    },
+    {
+      "type": "label",
+      "from": "gmxx",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "label",
+      "from": "gxm",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "label",
+      "from": "gxm1",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "label",
+      "from": "mgx",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "full",
+      "from": "gmx.co",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "full",
+      "from": "gmx.org",
+      "to": "gmx.com",
+      "provider": "gmx"
+    },
+    {
+      "type": "label",
+      "from": "portonmail",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protnmail",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmaik",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmaill",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmal",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmali",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmial",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "protonmil",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "full",
+      "from": "protonmail.co",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "full",
+      "from": "protonmail.net",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "full",
+      "from": "protonmail.org",
+      "to": "protonmail.com",
+      "provider": "protonmail"
+    },
+    {
+      "type": "label",
+      "from": "zaho",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "zho",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "zhoo",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "zoho1",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "zoo",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "zooh",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "full",
+      "from": "zoho.co",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "full",
+      "from": "zoho.net",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "full",
+      "from": "zoho.org",
+      "to": "zoho.com",
+      "provider": "zoho"
+    },
+    {
+      "type": "label",
+      "from": "fasmail",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmai",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmaill",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmal",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmali",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmial",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fastmil",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "fatmail",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "full",
+      "from": "fastmail.co",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "full",
+      "from": "fastmail.org",
+      "to": "fastmail.com",
+      "provider": "fastmail"
+    },
+    {
+      "type": "label",
+      "from": "yadnex",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "yandec",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "yandec",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "yandez",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "yandx",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "yanex",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "ynadex",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "label",
+      "from": "ynadex",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "full",
+      "from": "yandex.co",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "full",
+      "from": "yandex.net",
+      "to": "yandex.com",
+      "provider": "yandex"
+    },
+    {
+      "type": "full",
+      "from": "yandex.org",
+      "to": "yandex.com",
+      "provider": "yandex"
+    }
+  ]
+}
