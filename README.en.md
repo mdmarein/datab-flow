@@ -1,10 +1,12 @@
 <div align="center">
-  <img src="public/img/datab-flow-banner.png" alt="dataB Flow" width="100%">
+  <img src="public/img/datab-flow-banner.png" alt="DataB Flow" width="100%">
 </div>
 
-# dataB Flow
+# DataB Flow
 
 **Cleaning | Transformation | Governance**
+
+![version](https://img.shields.io/badge/version-2.0.0-blue) ![license](https://img.shields.io/badge/license-AGPL--3.0-green) ![node](https://img.shields.io/badge/node-%3E%3D14-brightgreen)
 
 **Versión en español:** [README.md](README.md)
 
@@ -99,7 +101,7 @@ cd datab-flow
 
 ## Running the application
 
-There are two ways to start dataB Flow: from the terminal, or as a desktop app with an icon.
+There are two ways to start DataB Flow: from the terminal, or as a desktop app with an icon.
 
 ---
 
@@ -125,16 +127,16 @@ node server.js
 
 ### Option 2 — Install as an app with an icon (recommended)
 
-You can create a desktop shortcut with an icon to open dataB Flow with a double-click, without using the terminal.
+You can create a desktop shortcut with an icon to open DataB Flow with a double-click, without using the terminal.
 
-#### Mac — Create "dataB Flow.app"
+#### Mac — Create "DataB Flow.app"
 
 1. Open a terminal in the project folder
 2. Run:
    ```bash
    bash tools/make-mac-app.sh
    ```
-3. **"dataB Flow.app"** is created on your Desktop
+3. **"DataB Flow.app"** is created on your Desktop
 4. **First time:** right-click the icon → **Open** (macOS asks for confirmation once)
 5. **After that:** just double-click
 
@@ -146,7 +148,7 @@ You can create a desktop shortcut with an icon to open dataB Flow with a double-
 1. Open the project folder in File Explorer
 2. Go into the `tools` folder
 3. Double-click **`make-win-shortcut.bat`**
-4. **"dataB Flow"** is created on your Desktop
+4. **"DataB Flow"** is created on your Desktop
 5. Double-click the icon to start the app
 
 > If you get a permissions error, right-click → **Run as administrator**.
@@ -329,7 +331,7 @@ Learning data is stored locally in `data/learning.json`. It is never shared or u
 
 ## AI configuration
 
-The Names, Field homologation and Tags modules use AI to process data. dataB Flow works with **any LLM** that exposes an OpenAI-compatible API, local or cloud-based.
+The Names, Field homologation and Tags modules use AI to process data. DataB Flow works with **any LLM** that exposes an OpenAI-compatible API, local or cloud-based.
 
 Configuration is stored in `data/ai-config.json` and managed from the **LLM** button in the header:
 
@@ -346,7 +348,7 @@ The simplest way to use AI locally is **Ollama** — a free tool that runs langu
 - The included `ai-config.json` is already preconfigured for Ollama with the `llama3.1` model
 
 **Any cloud provider's API:**
-You can also connect dataB Flow to any cloud AI provider (OpenAI, Anthropic, Mistral, Groq, etc.) by updating `url`, `model` and `apiKey` from the provider management modal, or by editing `data/ai-config.json` directly.
+You can also connect DataB Flow to any cloud AI provider (OpenAI, Anthropic, Mistral, Groq, etc.) by updating `url`, `model` and `apiKey` from the provider management modal, or by editing `data/ai-config.json` directly.
 
 ---
 
@@ -359,7 +361,7 @@ datab-flow/
 ├── start.bat                       Windows start script
 ├── LICENSE.md                      GNU AGPLv3
 ├── tools/
-│   ├── make-mac-app.sh             Creates "dataB Flow.app" on the Desktop (Mac)
+│   ├── make-mac-app.sh             Creates "DataB Flow.app" on the Desktop (Mac)
 │   └── make-win-shortcut.bat       Creates a Desktop shortcut (Windows)
 ├── data/
 │   ├── domain-rules-default.json   Built-in domain correction rules
@@ -478,4 +480,4 @@ GNU Affero General Public License v3.0 — see [LICENSE.md](LICENSE.md).
 
 ---
 
-*dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3*
+*DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3*

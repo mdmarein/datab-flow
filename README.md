@@ -1,10 +1,12 @@
 <div align="center">
-  <img src="public/img/datab-flow-banner.png" alt="dataB Flow" width="100%">
+  <img src="public/img/datab-flow-banner.png" alt="DataB Flow" width="100%">
 </div>
 
-# dataB Flow
+# DataB Flow
 
 **Cleaning | Transformation | Governance**
+
+![version](https://img.shields.io/badge/version-2.0.0-blue) ![license](https://img.shields.io/badge/license-AGPL--3.0-green) ![node](https://img.shields.io/badge/node-%3E%3D14-brightgreen)
 
 **English version:** [README.en.md](README.en.md)
 
@@ -99,7 +101,7 @@ cd datab-flow
 
 ## Cómo correr la aplicación
 
-Hay dos formas de iniciar dataB Flow: desde la terminal o como una app con ícono en el escritorio.
+Hay dos formas de iniciar DataB Flow: desde la terminal o como una app con ícono en el escritorio.
 
 ---
 
@@ -125,16 +127,16 @@ node server.js
 
 ### Opción 2 — Instalar como app con ícono (recomendado)
 
-Podés crear un acceso directo con ícono en tu escritorio para abrir dataB Flow con doble clic, sin necesidad de usar la terminal.
+Podés crear un acceso directo con ícono en tu escritorio para abrir DataB Flow con doble clic, sin necesidad de usar la terminal.
 
-#### Mac — Crear "dataB Flow.app"
+#### Mac — Crear "DataB Flow.app"
 
 1. Abrí una terminal en la carpeta del proyecto
 2. Ejecutá:
    ```bash
    bash tools/make-mac-app.sh
    ```
-3. Se crea **"dataB Flow.app"** en tu escritorio
+3. Se crea **"DataB Flow.app"** en tu escritorio
 4. **Primera vez:** clic derecho sobre el ícono → **Abrir** (macOS pide confirmación una sola vez)
 5. **Las siguientes veces:** doble clic normal
 
@@ -146,7 +148,7 @@ Podés crear un acceso directo con ícono en tu escritorio para abrir dataB Flow
 1. Abrí la carpeta del proyecto en el Explorador de archivos
 2. Entrá a la carpeta `tools`
 3. Hacé doble clic en **`make-win-shortcut.bat`**
-4. Se crea **"dataB Flow"** en tu escritorio
+4. Se crea **"DataB Flow"** en tu escritorio
 5. Doble clic en el ícono para iniciar la app
 
 > Si aparece un error de permisos, clic derecho → **Ejecutar como administrador**.
@@ -329,7 +331,7 @@ Los datos de aprendizaje se guardan localmente en `data/learning.json`. No se co
 
 ## Configuración de IA
 
-Los módulos de Nombres, Homologación de campos y Etiquetas usan IA para procesar datos. dataB Flow es compatible con **cualquier LLM** que exponga una API compatible con OpenAI, ya sea local o en la nube.
+Los módulos de Nombres, Homologación de campos y Etiquetas usan IA para procesar datos. DataB Flow es compatible con **cualquier LLM** que exponga una API compatible con OpenAI, ya sea local o en la nube.
 
 La configuración se guarda en `data/ai-config.json` y se gestiona desde el botón **LLM** del header:
 
@@ -346,7 +348,7 @@ La forma más sencilla de usar IA de forma local es con **Ollama** — una herra
 - El archivo `ai-config.json` incluido ya está preconfigurado para usarlo con Ollama y el modelo `llama3.1`
 
 **API de cualquier proveedor:**
-También podés conectar dataB Flow a cualquier proveedor de IA en la nube (OpenAI, Anthropic, Mistral, Groq, etc.) actualizando `url`, `model` y `apiKey` desde el modal de gestión de proveedores, o editando `data/ai-config.json` directamente.
+También podés conectar DataB Flow a cualquier proveedor de IA en la nube (OpenAI, Anthropic, Mistral, Groq, etc.) actualizando `url`, `model` y `apiKey` desde el modal de gestión de proveedores, o editando `data/ai-config.json` directamente.
 
 ---
 
@@ -359,7 +361,7 @@ datab-flow/
 ├── start.bat                       Script de inicio Windows
 ├── LICENSE.md                      GNU AGPLv3
 ├── tools/
-│   ├── make-mac-app.sh             Crea "dataB Flow.app" en el Desktop (Mac)
+│   ├── make-mac-app.sh             Crea "DataB Flow.app" en el Desktop (Mac)
 │   └── make-win-shortcut.bat       Crea acceso directo en el Desktop (Windows)
 ├── data/
 │   ├── domain-rules-default.json   Reglas de corrección de dominio incorporadas
@@ -478,4 +480,4 @@ GNU Affero General Public License v3.0 — ver [LICENSE.md](LICENSE.md).
 
 ---
 
-*dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3*
+*DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3*
