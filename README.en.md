@@ -34,7 +34,7 @@ Take a CSV, TSV or XLSX file with emails (and optionally first name, last name, 
 - Homologates any text field (job title, industry, etc.) by grouping variants with AI
 - Tags rows by a field's value, with a reusable library and AI suggestions
 - Completes first/last names using AI (local or via API)
-- Spreadsheet-style CSV editor, in a separate window, live-synced with the wizard
+- Spreadsheet-style file editor, in a separate window, live-synced with the wizard (supports CSV, TSV and XLSX)
 - Exports the cleaned CSV and a full change log
 - Bilingual interface (**Spanish / English**) with **dark and light theme**
 
@@ -186,7 +186,7 @@ Drag your CSV, TSV or XLSX file onto the screen (or click to browse). The app au
 - The separator (comma `,`, semicolon `;` or tab `\t`) — for CSV/TSV
 - Which column contains the emails, and which row is the header
 
-For **XLSX** files: only the first sheet is read. Formulas show their cached value. Date-formatted cells appear as Excel serial numbers (they can be reformatted in the CSV editor).
+For **XLSX** files: only the first sheet is read. Formulas show their cached value. Date-formatted cells appear as Excel serial numbers (they can be reformatted in the EDITOR).
 
 ### Step B — Field selection
 
@@ -280,9 +280,9 @@ When the wizard finishes, you get:
 
 ---
 
-## CSV editor
+## File editor
 
-**CSV** button in the header — opens a spreadsheet-style editor in a separate window, live-synced with the main wizard (via `BroadcastChannel`, no intermediate server). It lets you:
+**EDITOR** button in the header — opens a spreadsheet-style editor in a separate window, live-synced with the main wizard (via `BroadcastChannel`, no intermediate server). It lets you:
 
 - Edit cells directly
 - Split, delete, add, reorder and rename columns

@@ -34,7 +34,7 @@ Tomás un archivo CSV, TSV o XLSX con emails (y opcionalmente nombre, apellido, 
 - Homologa cualquier campo de texto (cargo, industria, etc.) agrupando variantes con IA
 - Etiqueta filas por valor de un campo, con librería reutilizable y sugerencia por IA
 - Completa nombres y apellidos usando IA (local o vía API)
-- Editor de CSV tipo planilla, en ventana separada y sincronizado en vivo con el wizard
+- Editor de archivos tipo planilla, en ventana separada y sincronizado en vivo con el wizard (soporta CSV, TSV y XLSX)
 - Exporta el CSV limpio y un log de todos los cambios
 - Interfaz bilingüe (**español / inglés**) y con **tema claro y oscuro**
 
@@ -280,9 +280,9 @@ Al completar el wizard se muestra:
 
 ---
 
-## Editor de CSV
+## Editor de archivos
 
-Botón **CSV** en el header — abre un editor tipo planilla en una ventana separada, sincronizado en vivo con el wizard principal (vía `BroadcastChannel`, sin servidor intermedio). Permite:
+Botón **EDITOR** en el header — abre un editor tipo planilla en una ventana separada, sincronizado en vivo con el wizard principal (vía `BroadcastChannel`, sin servidor intermedio). Permite:
 
 - Editar celdas directamente
 - Dividir, eliminar, agregar, reordenar y renombrar columnas
