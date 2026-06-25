@@ -177,22 +177,22 @@ set PORT=8080 && node server.js   # Windows
 
 ## Guía de uso
 
-La aplicación funciona como un wizard. Después de importar el archivo y elegir los campos, la pantalla **C — Análisis del CSV** te muestra qué módulos detectaron algo para corregir, y en **D — Selección de flujo** activás o desactivás cada uno según lo que necesite tu archivo (los módulos sin issues quedan sugeridos como omitidos, pero podés cambiarlo).
+La aplicación corre de forma local. Importá tu archivo — por defecto los campos vacíos no se seleccionan, pero podés elegir con qué columnas querés trabajar. La app genera un análisis del archivo con los campos seleccionados y muestra qué módulos detectaron posibilidades de corrección; luego hace una pre-selección del flujo que podés ajustar libremente (los módulos sin issues quedan sugeridos como omitidos). Al finalizar podés exportar el archivo corregido en CSV, un log con todos los cambios, y comenzar un nuevo proceso.
 
-### Paso A — Importar
+### Paso A — Importar Archivo
 
 Arrastrá tu archivo CSV, TSV o XLSX a la pantalla (o hacé clic para buscarlo). La app detecta automáticamente:
 - El encoding del archivo (UTF-8 o Windows-1252) — para CSV/TSV
 - El separador (coma `,`, punto y coma `;` o tabulación `\t`) — para CSV/TSV
 - Qué columna contiene los emails, y qué fila es el header
 
-Para archivos **XLSX**: se lee la primera hoja. Las fórmulas muestran el valor cacheado. Los formatos de fecha aparecen como número serial de Excel (se pueden reformatear en el editor de CSV).
+Para archivos **XLSX**: se lee la primera hoja. Las fórmulas muestran el valor cacheado. Los formatos de fecha aparecen como número serial de Excel (se pueden reformatear con el Editor incluido en la app).
 
 ### Paso B — Selección de campos
 
 Seleccioná qué columnas del archivo original querés conservar en el archivo de salida.
 
-### Paso C — Análisis del CSV
+### Paso C — Análisis del Archivo
 
 Diagnóstico previo: cuántas filas tienen problemas de email, duplicados, palabras clave, campos vacíos, valores homologables, columnas de etiquetas detectadas, etc. Define qué módulos te conviene activar.
 

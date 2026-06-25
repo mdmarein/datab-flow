@@ -177,22 +177,22 @@ set PORT=8080 && node server.js   # Windows
 
 ## Usage guide
 
-The app works as a wizard. After importing the file and choosing the fields, the **C — CSV analysis** screen shows you which modules found something to fix, and in **D — Flow selection** you turn each one on or off depending on what your file needs (modules with no issues are suggested as skipped by default, but you can change that).
+The app runs locally. Import your file — by default empty fields are not selected, but you can choose which columns to work with. The app generates a file analysis based on the selected fields and shows which modules detected correction opportunities; it then pre-selects the flow, which you can freely adjust (modules with no issues are suggested as skipped). When done, you can export the corrected file as CSV, a log with all changes, and start a new process.
 
-### Step A — Import
+### Step A — Import file
 
 Drag your CSV, TSV or XLSX file onto the screen (or click to browse). The app automatically detects:
 - The file's encoding (UTF-8 or Windows-1252) — for CSV/TSV
 - The separator (comma `,`, semicolon `;` or tab `\t`) — for CSV/TSV
 - Which column contains the emails, and which row is the header
 
-For **XLSX** files: only the first sheet is read. Formulas show their cached value. Date-formatted cells appear as Excel serial numbers (they can be reformatted in the EDITOR).
+For **XLSX** files: only the first sheet is read. Formulas show their cached value. Date-formatted cells appear as Excel serial numbers (they can be reformatted using the Editor included in the app).
 
 ### Step B — Field selection
 
 Choose which columns from the original file to keep in the output file.
 
-### Step C — CSV analysis
+### Step C — File analysis
 
 A preview diagnostic: how many rows have email issues, duplicates, keyword matches, empty fields, homologable values, detected tag columns, etc. Helps you decide which modules to enable.
 
