@@ -10,13 +10,13 @@
 
 **English version:** [README.en.md](README.en.md)
 
-Una herramienta local y gratuita para limpiar y procesar listas de contactos en formato CSV o TSV. Sin necesidad de instalar librerías ni pagar servicios — todo corre en tu computadora.
+Una herramienta local y gratuita para limpiar y procesar listas de contactos en formato CSV, TSV o XLSX. Sin necesidad de instalar librerías ni pagar servicios — todo corre en tu computadora.
 
 ---
 
 ## ¿Qué hace?
 
-Tomás un archivo CSV o TSV con emails (y opcionalmente nombre, apellido, empresa, teléfono, país, cargo, tags, etc.) y lo pasás por un wizard de varios pasos:
+Tomás un archivo CSV, TSV o XLSX con emails (y opcionalmente nombre, apellido, empresa, teléfono, país, cargo, tags, etc.) y lo pasás por un wizard de varios pasos:
 
 - Corrige emails con errores comunes de tipeo en el dominio, por ejemplo:
 
@@ -181,10 +181,12 @@ La aplicación funciona como un wizard. Después de importar el archivo y elegir
 
 ### Paso A — Importar
 
-Arrastrá tu archivo CSV o TSV a la pantalla (o hacé clic para buscarlo). La app detecta automáticamente:
-- El encoding del archivo (UTF-8 o Windows-1252)
-- El separador (coma `,`, punto y coma `;` o tabulación `\t`)
+Arrastrá tu archivo CSV, TSV o XLSX a la pantalla (o hacé clic para buscarlo). La app detecta automáticamente:
+- El encoding del archivo (UTF-8 o Windows-1252) — para CSV/TSV
+- El separador (coma `,`, punto y coma `;` o tabulación `\t`) — para CSV/TSV
 - Qué columna contiene los emails, y qué fila es el header
+
+Para archivos **XLSX**: se lee la primera hoja. Las fórmulas muestran el valor cacheado. Los formatos de fecha aparecen como número serial de Excel (se pueden reformatear en el editor de CSV).
 
 ### Paso B — Selección de campos
 
@@ -418,7 +420,7 @@ datab-flow/
 
 ### ¿Qué es?
 
-Una herramienta de limpieza y transformación de listas CSV de contactos de email. Corre localmente en el navegador (`localhost:3000`), con backend Node.js y frontend en JavaScript vanilla. Sin dependencias npm. 100% offline (salvo que conectes un proveedor de IA en la nube).
+Una herramienta de limpieza y transformación de listas de contactos de email en CSV, TSV o XLSX. Corre localmente en el navegador (`localhost:3000`), con backend Node.js y frontend en JavaScript vanilla. Sin dependencias npm. 100% offline (salvo que conectes un proveedor de IA en la nube).
 
 ### Tech Stack
 
@@ -426,6 +428,7 @@ Una herramienta de limpieza y transformación de listas CSV de contactos de emai
 |------|-----------|
 | **Backend** | Node.js puro (sin Express), CommonJS, 0 dependencias externas, 24 endpoints REST |
 | **Frontend** | JavaScript ES6 modules + Vanilla JS, CSS3 con variables para temas claro/oscuro |
+| **XLSX** | Parser ZIP + XML nativo (`DecompressionStream` + `DOMParser`) — sin librerías externas |
 | **Concurrencia** | Web Worker para análisis y validación pesada (no bloquea la UI) |
 | **Multi-ventana** | BroadcastChannel API — sincroniza el editor de CSV standalone con el wizard principal |
 | **Storage** | Archivos JSON en `data/` (sin base de datos), localStorage para preferencias de UI |

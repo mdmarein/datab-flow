@@ -10,13 +10,13 @@
 
 **Versión en español:** [README.md](README.md)
 
-A free, local tool for cleaning and processing contact lists in CSV or TSV format. No libraries to install, no services to pay for — everything runs on your computer.
+A free, local tool for cleaning and processing contact lists in CSV, TSV or XLSX format. No libraries to install, no services to pay for — everything runs on your computer.
 
 ---
 
 ## What it does
 
-Take a CSV or TSV file with emails (and optionally first name, last name, company, phone, country, job title, tags, etc.) and run it through a multi-step wizard:
+Take a CSV, TSV or XLSX file with emails (and optionally first name, last name, company, phone, country, job title, tags, etc.) and run it through a multi-step wizard:
 
 - Fixes common email domain typos, for example:
 
@@ -181,10 +181,12 @@ The app works as a wizard. After importing the file and choosing the fields, the
 
 ### Step A — Import
 
-Drag your CSV or TSV file onto the screen (or click to browse). The app automatically detects:
-- The file's encoding (UTF-8 or Windows-1252)
-- The separator (comma `,`, semicolon `;` or tab `\t`)
+Drag your CSV, TSV or XLSX file onto the screen (or click to browse). The app automatically detects:
+- The file's encoding (UTF-8 or Windows-1252) — for CSV/TSV
+- The separator (comma `,`, semicolon `;` or tab `\t`) — for CSV/TSV
 - Which column contains the emails, and which row is the header
+
+For **XLSX** files: only the first sheet is read. Formulas show their cached value. Date-formatted cells appear as Excel serial numbers (they can be reformatted in the CSV editor).
 
 ### Step B — Field selection
 
@@ -418,7 +420,7 @@ datab-flow/
 
 ### What is it?
 
-A cleaning and transformation tool for CSV contact/email lists. Runs locally in the browser (`localhost:3000`), with a Node.js backend and a vanilla JavaScript frontend. No npm dependencies. 100% offline (unless you connect a cloud AI provider).
+A cleaning and transformation tool for CSV, TSV and XLSX contact/email lists. Runs locally in the browser (`localhost:3000`), with a Node.js backend and a vanilla JavaScript frontend. No npm dependencies. 100% offline (unless you connect a cloud AI provider).
 
 ### Tech stack
 
@@ -426,6 +428,7 @@ A cleaning and transformation tool for CSV contact/email lists. Runs locally in 
 |------|-----------|
 | **Backend** | Pure Node.js (no Express), CommonJS, 0 external dependencies, 24 REST endpoints |
 | **Frontend** | JavaScript ES6 modules + vanilla JS, CSS3 variables for dark/light themes |
+| **XLSX** | Native ZIP + XML parser (`DecompressionStream` + `DOMParser`) — no external libraries |
 | **Concurrency** | Web Worker for heavy analysis/validation (keeps the UI responsive) |
 | **Multi-window** | BroadcastChannel API — syncs the standalone CSV editor with the main wizard |
 | **Storage** | JSON files in `data/` (no database), localStorage for UI preferences |
