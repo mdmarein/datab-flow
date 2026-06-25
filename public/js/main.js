@@ -1,6 +1,6 @@
 /**
  * main.js — Punto de entrada y orquestador del wizard
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { getState, setState, resetSession, rebuildWhitelist, subscribe } from './modules/state.js';
@@ -38,6 +38,7 @@ import {
   applyCaseValue,
 } from './modules/prep.js';
 import { kwMatchEmail, kwMatchField } from './modules/keywords.js';
+import { parseXLSX } from './modules/xlsx-parser.js';
 
 // ════════════════════════════════════════════════════════════
 //  INIT
@@ -431,20 +432,74 @@ function _populateExtraColSels(csv) {
 }
 
 function loadFile(file) {
-  if (!/\.(csv|tsv)$/i.test(file.name)) { toast(t('toast.csv_only'), 'warn'); return; }
+  const isXlsx = /\.xlsx$/i.test(file.name);
+  if (!isXlsx && !/\.(csv|tsv)$/i.test(file.name)) { toast(t('toast.csv_only'), 'warn'); return; }
   const mb = file.size / 1024 / 1024;
   if (mb > 50) toast(t('import.file_large', mb.toFixed(1)), 'warn');
   else if (mb > 20) toast(t('import.file_medium', mb.toFixed(1)), 'warn');
   const reader = new FileReader();
-  reader.onload = e => {
-    const buf    = e.target.result;
+  reader.onload = async e => {
+    const buf = e.target.result;
+
+    if (isXlsx) {
+      let result;
+      try { result = await parseXLSX(buf); }
+      catch (err) { toast(err.message || t('toast.read_error'), 'error'); return; }
+
+      const { headers, rows, sep, sheetName } = result;
+      const csv = { headers, rows, sep };
+      if (!headers.length) { toast(t('toast.read_error'), 'error'); return; }
+
+      // Detección de columnas — misma lógica que _applyEncoding(updateCols=true)
+      const hdrT = headers.map(h => h.trim());
+      const autoI = hdrT.findIndex(h => /email|mail|correo/i.test(h));
+      const colIdx = autoI >= 0 ? autoI : 0;
+      const _hasData = i => i >= 0 && rows.some(r => (r[i] || '').trim());
+      const nIdx  = hdrT.findIndex(h => /^nombres?$|^first.?names?$|^names?$/i.test(h));
+      const aIdx  = hdrT.findIndex(h => /^apellidos?$|^last.?names?$|^surnames?$/i.test(h));
+      const eIdx  = hdrT.findIndex(h => /empresa[s]?|raz[oó]n\s*(?:de\s*)?social|nombre.{0,20}fant[aá]s[ií]a?|compan(?:y|ies?)(?:\s*name)?|business(?:\s*name)?|\borganiz|\bnegocio/i.test(h));
+      const tIdx  = hdrT.findIndex(h => /^tel[eé]?f?|^phone|^cel|whatsapp/i.test(h));
+      const pIdx  = hdrT.findIndex(h => /^pa[ií]s(\b|\s|$)|^country(\b|\s|$)/i.test(h));
+      const _g = i => _hasData(i) ? i : -1;
+      setState({
+        csv, filename: file.name, selectedColumns: null, selectedColumnNames: null,
+        csvStartRow: 0, _rawBuf: null, _detectedEncoding: null,
+        colIdx, emailColName: headers[colIdx] || null,
+        confirmedNombreIdx:        _g(nIdx),
+        confirmedApellidoIdx:      _g(aIdx),
+        confirmedEmpresaIdx:       _g(eIdx),
+        confirmedTelIdx:           _g(tIdx),
+        confirmedPaisIdx:          _g(pIdx),
+        confirmedNombreColName:    _g(nIdx)  >= 0 ? headers[nIdx]  : null,
+        confirmedApellidoColName:  _g(aIdx)  >= 0 ? headers[aIdx]  : null,
+        confirmedEmpresaColName:   _g(eIdx)  >= 0 ? headers[eIdx]  : null,
+        confirmedTelColName:       _g(tIdx)  >= 0 ? headers[tIdx]  : null,
+        confirmedPaisColName:      _g(pIdx)  >= 0 ? headers[pIdx]  : null,
+      });
+
+      // Encoding selector: no aplica para XLSX
+      const encSel = $('encsel');
+      if (encSel) { encSel.value = 'utf-8'; encSel.disabled = true; }
+      const frv = $('from-row-val');
+      if (frv) frv.value = 1;
+      const autoLbl = $('from-row-auto');
+      if (autoLbl) autoLbl.style.display = 'none';
+
+      $('fchip').textContent = file.name;
+      show('cfg1'); hide('dz');
+      _renderCsvPreview(csv);
+      _checkFilenameMatch(file.name);
+      toast(t('import.rows_loaded_xlsx', rows.length, headers.length, sheetName));
+      return;
+    }
+
+    // ── CSV / TSV ────────────────────────────────────────────────
     const encKey = _detectEncoding(buf);
     const csv    = _applyEncoding(buf, encKey, file.name, true);
     if (!csv) return;
 
-    // Actualizar selector de encoding
     const encSel = $('encsel');
-    if (encSel) encSel.value = encKey;
+    if (encSel) { encSel.value = encKey; encSel.disabled = false; }
 
     const sepLabel = csv.sep === '\t' ? 'TSV·tab' : csv.sep === ';' ? 'CSV·punto y coma' : 'CSV·coma';
     setState({ filename: file.name, selectedColumns: null, selectedColumnNames: null });

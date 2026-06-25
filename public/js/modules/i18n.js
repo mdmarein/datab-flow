@@ -1,6 +1,6 @@
 /**
  * i18n.js — Internacionalización ES / EN
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  *
  * window.__DATAB_LANG debe ser seteado por el inline <script> en index.html
  * antes de que este módulo se cargue, para que LANG se resuelva correctamente.
@@ -43,7 +43,7 @@ const DICT = {
     'fs.type_ph':           'Tipo…',
 
     // ── Paso 1: importar ──────────────────────────────────────
-    'import.drag':          'Arrastrá el archivo CSV aquí',
+    'import.drag':          'Arrastrá el archivo CSV, TSV o XLSX aquí',
     'import.click_pre':     'o ',
     'import.click':         'hacé clic para seleccionar',
     'import.email_col':     'Confirmar columna email:',
@@ -54,7 +54,8 @@ const DICT = {
     'import.loading':       'Cargando configuración…',
     'import.file_large':    (mb) => `Archivo grande (${mb} MB) — el procesamiento puede tardar`,
     'import.file_medium':   (mb) => `Archivo de ${mb} MB — podría tomar unos segundos`,
-    'import.rows_loaded':   (rows, cols, sep, enc) => `✓ ${rows} filas · ${cols} col · ${sep} · ${enc}`,
+    'import.rows_loaded':       (rows, cols, sep, enc) => `✓ ${rows} filas · ${cols} col · ${sep} · ${enc}`,
+    'import.rows_loaded_xlsx':  (rows, cols, sheet) => `✓ ${rows} filas · ${cols} col · XLSX · Hoja: ${sheet}`,
     'import.from_row':      'Desde Fila:',
 
     // ── Paso 2: reglas ────────────────────────────────────────
@@ -495,7 +496,7 @@ const DICT = {
     // ── Toasts ────────────────────────────────────────────────
     'toast.data_loaded':          '✓ Datos cargados',
     'toast.server_unavailable':   'Servidor no disponible — trabajando sin persistencia',
-    'toast.csv_only':             'Solo se aceptan archivos .csv o .tsv',
+    'toast.csv_only':             'Solo se aceptan archivos .csv, .tsv o .xlsx',
     'toast.read_error':           'No se pudo leer el archivo',
     'toast.rules_enter_from':     'Ingresá el label o dominio',
     'toast.rules_invalid_to':     'Dominio destino inválido',
@@ -635,7 +636,7 @@ const DICT = {
 
     // ── Editor CSV ────────────────────────────────────────────
     'editor.btn':              'Editor CSV',
-    'editor.title':            'Editor CSV',
+    'editor.title':            '<span style="color:var(--t0)">DataB</span> <span style="color:var(--accent)">Editor</span>',
     'editor.no_csv':           'No hay CSV cargado. Importá un archivo primero.',
     'editor.open_window':      'Abrir en otra ventana',
     'editor.close':            'Cerrar',
@@ -821,7 +822,7 @@ const DICT = {
     'fs.type_ph':           'Type…',
 
     // ── Step 1: import ────────────────────────────────────────
-    'import.drag':          'Drag your CSV file here',
+    'import.drag':          'Drag your CSV, TSV or XLSX file here',
     'import.click_pre':     'or ',
     'import.click':         'click to select',
     'import.email_col':     'Confirm email column:',
@@ -832,7 +833,8 @@ const DICT = {
     'import.loading':       'Loading configuration…',
     'import.file_large':    (mb) => `Large file (${mb} MB) — processing may take a while`,
     'import.file_medium':   (mb) => `${mb} MB file — this may take a few seconds`,
-    'import.rows_loaded':   (rows, cols, sep, enc) => `✓ ${rows} rows · ${cols} col · ${sep} · ${enc}`,
+    'import.rows_loaded':       (rows, cols, sep, enc) => `✓ ${rows} rows · ${cols} col · ${sep} · ${enc}`,
+    'import.rows_loaded_xlsx':  (rows, cols, sheet) => `✓ ${rows} rows · ${cols} col · XLSX · Sheet: ${sheet}`,
     'import.from_row':      'From Row:',
 
     // ── Step 2: rules ─────────────────────────────────────────
@@ -1273,7 +1275,7 @@ const DICT = {
     // ── Toasts ───────────────────────────────────────────────
     'toast.data_loaded':          '✓ Data loaded',
     'toast.server_unavailable':   'Server unavailable — working without persistence',
-    'toast.csv_only':             'Only .csv or .tsv files are accepted',
+    'toast.csv_only':             'Only .csv, .tsv or .xlsx files are accepted',
     'toast.read_error':           'Could not read the file',
     'toast.rules_enter_from':     'Enter the label or domain',
     'toast.rules_invalid_to':     'Invalid destination domain',
@@ -1413,7 +1415,7 @@ const DICT = {
 
     // ── CSV Editor ────────────────────────────────────────────
     'editor.btn':              'Edit',
-    'editor.title':            'CSV Editor',
+    'editor.title':            '<span style="color:var(--t0)">DataB</span> <span style="color:var(--accent)">Editor</span>',
     'editor.no_csv':           'No CSV loaded. Import a file first.',
     'editor.open_window':      'Open in new window',
     'editor.close':            'Close',

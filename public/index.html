@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>dataB Flow · Cleaning | Transformation | Governance</title>
+<title>DataB Flow · Cleaning | Transformation | Governance</title>
 <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" sizes="192x192" href="/img/favicon-192.png">
@@ -23,9 +23,9 @@
 <div class="sticky-top">
   <div class="app-inner">
     <header class="hdr">
-      <div class="logo"><img src="/img/logo.webp" alt="dataB Flow" width="34" height="34"></div>
+      <div class="logo"><img src="/img/logo.webp" alt="DataB Flow" width="34" height="34"></div>
       <div class="hdr-t">
-        <h1>dataB <em>Flow</em></h1>
+        <h1>DataB <em>Flow</em></h1>
         <p><i>Cleaning | Transformation | Governance</i></p>
       </div>
       <div class="hdr-actions">
@@ -39,7 +39,7 @@
         <div class="hdr-actions-row">
           <button class="btn-hdr-icon" id="btn-csv-editor" data-i18n-title="header.csv_editor" title="Editor de CSV" aria-label="Editor de CSV">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            <span>CSV</span>
+            <span>EDITOR</span>
           </button>
           <button class="btn-hdr-icon" id="btn-learning" data-i18n-title="header.learning" title="Gestionar aprendizaje" aria-label="Gestionar aprendizaje">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
@@ -65,7 +65,7 @@
     <div class="dz-t" data-i18n="import.drag">Arrastrá el archivo CSV aquí</div>
     <div class="dz-s"><span data-i18n="import.click_pre">o </span><strong data-i18n="import.click">hacé clic para seleccionar</strong></div>
   </div>
-  <input type="file" id="fi" accept=".csv,.CSV,.tsv,.TSV">
+  <input type="file" id="fi" accept=".csv,.CSV,.tsv,.TSV,.xlsx,.XLSX">
   <div class="cfg hidden" id="cfg1">
     <!-- Fila 1: nombre archivo + cambiar archivo -->
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
@@ -479,7 +479,7 @@
 </div>
 </div>
 
-<div class="footer"><strong>dataB <em>Flow</em></strong><span style="color:#a0a0a0"> · </span><i>Cleaning | Transformation | Governance</i><span style="color:#a0a0a0"> · </span><span class="footer-year">© 2026</span> <span style="color:var(--accent)">mdmarein</span><span style="color:#a0a0a0"> · </span><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:#a0a0a0;text-decoration:none">GNU AGPLv3</a></div>
+<div class="footer"><strong>DataB <em>Flow</em></strong><span style="color:#a0a0a0"> · </span><i>Cleaning | Transformation | Governance</i><span style="color:#a0a0a0"> · </span><span class="footer-year">© 2026</span> <span style="color:var(--accent)">mdmarein</span><span style="color:#a0a0a0"> · </span><a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:#a0a0a0;text-decoration:none">GNU AGPLv3</a></div>
 
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="tmsg"></span></div>
 
@@ -554,7 +554,7 @@
     <div class="editor-hdr">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" style="flex-shrink:0;color:var(--t2)"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
       <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0;overflow:hidden">
-        <span class="editor-hdr-title" data-i18n="editor.title" style="flex:0 0 auto">Editor de CSV</span>
+        <span class="editor-hdr-title" data-i18n-html="editor.title" style="flex:0 0 auto"><span style="color:var(--t0)">DataB</span> <span style="color:var(--accent)">Editor</span></span>
         <span class="editor-hdr-file" id="editor-filename" style="margin-left:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0"></span>
       </div>
       <div class="editor-hdr-actions">
