@@ -1,6 +1,6 @@
 /**
  * steps.js — Render de cada paso del wizard + resumen final
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { getState, setState } from '../modules/state.js';
@@ -1213,32 +1213,32 @@ export function resetStep8Filter() { _s8Filter = 'all'; }
  * @param {string[]} headers - Encabezados del CSV
  * @param {Function} onConfirm - callback(paisIdx, telIdx)
  */
-export function renderStep8ColSelector(headers, onConfirm) {
+export function renderStep8ColSelector(headers, onConfirm, preselPaisIdx = -1, preselTelIdx = -1) {
   const panel = $('step8-panel');
   if (!panel) return;
 
-  const opts = [`<option value="-1">${t('country.none')}</option>`,
-    ...headers.map((h, i) => `<option value="${i}">${esc(h || 'Col ' + (i+1))}</option>`),
+  const makeOpts = (preselIdx) => [
+    `<option value="-1"${preselIdx < 0 ? ' selected' : ''}>${t('country.none')}</option>`,
+    ...headers.map((h, i) => `<option value="${i}"${i === preselIdx ? ' selected' : ''}>${esc(h || 'Col ' + (i+1))}</option>`),
   ].join('');
 
+  const missingPais = preselPaisIdx < 0;
+  const missingTel  = preselTelIdx  < 0;
+  const missingNames = [missingPais && t('country.country'), missingTel && t('country.phone')].filter(Boolean).join(` ${t('country.and')} `);
+  const alertMsg = `${t('country.missing_col')} <strong>${missingNames}.</strong> ${t('country.select_or_none')}`;
+
   panel.innerHTML = `
-    <div class="sum-box" style="margin-bottom:14px;color:var(--t1)">
-      ${t('country.no_auto')}<br>
-      ${t('country.select_hint')}
-    </div>
-    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px">
-      <label style="font-size:12px;color:var(--t2)">
-        ${t('country.col_pais')}<br>
-        <select id="col-sel-pais" style="margin-top:5px;min-width:190px">${opts}</select>
+    <div class="sum-box" style="margin-bottom:14px;color:var(--red)"><span>${alertMsg}</span></div>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2)">
+        ${t('country.col_pais')}
+        <select id="col-sel-pais" style="min-width:160px">${makeOpts(preselPaisIdx)}</select>
       </label>
-      <label style="font-size:12px;color:var(--t2)">
-        ${t('country.col_tel')}<br>
-        <select id="col-sel-tel" style="margin-top:5px;min-width:190px">${opts}</select>
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2)">
+        ${t('country.col_tel')}
+        <select id="col-sel-tel" style="min-width:160px">${makeOpts(preselTelIdx)}</select>
       </label>
-    </div>
-    <div style="display:flex;gap:8px">
       <button class="btn btn-p btn-sm" id="btn-step8-confirm">${t('country.confirm')}</button>
-      <button class="btn btn-g btn-sm" id="btn-step8-skip">${t('country.skip')}</button>
     </div>`;
 
   const si8 = $('si8');
@@ -1249,7 +1249,6 @@ export function renderStep8ColSelector(headers, onConfirm) {
     const ti = parseInt($('col-sel-tel').value);
     onConfirm(pi, ti);
   });
-  $('btn-step8-skip').addEventListener('click', () => onConfirm(-1, -1));
 }
 
 /**
@@ -1659,14 +1658,31 @@ export function renderFieldSelect(csv, emailColIdx, selectedColumns, fieldColIdx
         ? [..._baseAssign, _emailField]
         : _baseAssign;
       const isAssignOpen  = _assignOpenForCol === i;
-      const showAssign    = !specialLabel && !isEmpty && !isDeleted && !isAdded && availableToAssign.length > 0;
+      const showAssign    = !specialLabel && !isDeleted && availableToAssign.length > 0;
+
+      function _stackedRight(topBadge, i) {
+        let bottom = '';
+        if (specialLabel) {
+          const badgeText = t(`fs.badge_${specialLabel}`) || specialLabel;
+          bottom = `<span class="col-type-badge" data-ci="${i}" style="font-size:10px;color:var(--dup);cursor:pointer;flex-shrink:0">${badgeText} ×</span>`;
+        } else if (isAssignOpen) {
+          bottom = `<select class="sel-assign" data-ci="${i}" style="font-size:10px;padding:1px 3px;border-radius:var(--rs);border:1px solid var(--border);background:var(--s2);color:var(--t1);flex-shrink:0;max-width:90px">
+            <option value="">${t('fs.type_ph')}</option>
+            ${availableToAssign.map(f => `<option value="${f.key}">${f.label}</option>`).join('')}
+          </select>`;
+        } else if (showAssign) {
+          bottom = `<button class="btn-assign" data-ci="${i}" style="font-size:10px;color:var(--t2);background:none;border:none;cursor:pointer;padding:0;flex-shrink:0;white-space:nowrap">${t('fs.assign')} ▾</button>`;
+        }
+        return `<div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;margin-left:auto;flex-shrink:0">${topBadge}${bottom}</div>`;
+      }
 
       function rightSide() {
-        if (isDeleted || isAdded) return editorBadge;
+        if (isDeleted) return editorBadge;
+        if (isAdded)  return _stackedRight(`<span style="display:flex;align-items:center;gap:3px;font-size:10px;color:var(--warn)">${_EDIT_ICON} ADD</span>`, i);
+        if (isEmpty)  return _stackedRight(`<span style="font-size:10px;color:#555555">vacío</span>`, i);
         if (specialLabel) {
-          const canUnassign = true;
           const badgeText = specialLabel === 'email' ? 'email' : (t(`fs.badge_${specialLabel}`) || specialLabel);
-          return `<span class="col-type-badge" data-ci="${i}" style="font-size:10px;color:var(--dup);margin-left:auto;flex-shrink:0;${canUnassign ? 'cursor:pointer' : ''}">${badgeText}${canUnassign ? ' ×' : ''}</span>`;
+          return `<span class="col-type-badge" data-ci="${i}" style="font-size:10px;color:var(--dup);margin-left:auto;flex-shrink:0;cursor:pointer">${badgeText} ×</span>`;
         }
         if (isAssignOpen) {
           return `<select class="sel-assign" data-ci="${i}" style="font-size:10px;padding:1px 3px;border-radius:var(--rs);border:1px solid var(--border);background:var(--s2);color:var(--t1);margin-left:auto;flex-shrink:0;max-width:90px">
@@ -1675,7 +1691,6 @@ export function renderFieldSelect(csv, emailColIdx, selectedColumns, fieldColIdx
           </select>`;
         }
         if (showAssign) return `<button class="btn-assign" data-ci="${i}" style="font-size:10px;color:var(--t2);margin-left:auto;background:none;border:none;cursor:pointer;padding:0 2px;flex-shrink:0;white-space:nowrap">${t('fs.assign')} ▾</button>`;
-        if (isEmpty) return `<span style="font-size:10px;color:#555555;margin-left:auto">vacío</span>`;
         return '';
       }
 

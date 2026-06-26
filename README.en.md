@@ -190,7 +190,7 @@ For **XLSX** files: only the first sheet is read. Formulas show their cached val
 
 ### Step B — Field selection
 
-Choose which columns from the original file to keep in the output file.
+Choose which columns from the original file to keep in the output file. You can also assign the role of each column (Email, Name, Last name, Company, Phone, Country) using the **Assign ▾** button on each chip — including empty columns and columns added from the Editor.
 
 ### Step C — File analysis
 
@@ -254,7 +254,7 @@ Normalizes the company field: detects empty values, cleans up "junk" entries (`n
 
 ### Country and phone
 
-Detects the contact's country from the email domain or the country field, and formats phone numbers to the international standard (e.g. `+54 9 11 1234-5678`).
+Detects the contact's country from the email domain or the country field, and formats phone numbers to the international standard (e.g. `+54 9 11 1234-5678`). If either column is not auto-detected (or was unassigned in Step B), the module shows an inline selector to choose it or skip it without leaving the step.
 
 ### Field homologation
 

@@ -59,7 +59,7 @@
     { "iso2": "SK", "nameEs": "Eslovaquia",                  "callingCode": "421",  "tld": "sk" },
     { "iso2": "SI", "nameEs": "Eslovenia",                   "callingCode": "386",  "tld": "si" },
     { "iso2": "ES", "nameEs": "España",                      "callingCode": "34",   "tld": "es" },
-    { "iso2": "US", "nameEs": "Estados Unidos de América",   "callingCode": "1",    "tld": "us" },
+    { "iso2": "US", "nameEs": "Estados Unidos",              "callingCode": "1",    "tld": "us" },
     { "iso2": "EE", "nameEs": "Estonia",                     "callingCode": "372",  "tld": "ee" },
     { "iso2": "ET", "nameEs": "Etiopía",                     "callingCode": "251",  "tld": "et" },
     { "iso2": "PH", "nameEs": "Filipinas",                   "callingCode": "63",   "tld": "ph" },

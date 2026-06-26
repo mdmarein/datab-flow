@@ -359,6 +359,8 @@ function _applyEncoding(buf, encKey, filename, updateCols) {
       confirmedEmpresaColName:  _g(confirmedEmpresaIdx)  >= 0 ? _h[confirmedEmpresaIdx]  : null,
       confirmedTelColName:      _g(confirmedTelIdx)      >= 0 ? _h[confirmedTelIdx]      : null,
       confirmedPaisColName:     _g(confirmedPaisIdx)     >= 0 ? _h[confirmedPaisIdx]     : null,
+      _userClearedPais: false,
+      _userClearedTel:  false,
     });
   } else {
     // Re-encoding: recompute colIdx from emailColName (structure unchanged)
@@ -603,8 +605,8 @@ function _onAssignColumn(colIdx, fieldKey) {
     if (colIdx === confirmedNombreIdx)   setState({ confirmedNombreIdx:   -1, confirmedNombreColName:   null });
     if (colIdx === confirmedApellidoIdx) setState({ confirmedApellidoIdx: -1, confirmedApellidoColName: null });
     if (colIdx === confirmedEmpresaIdx)  setState({ confirmedEmpresaIdx:  -1, confirmedEmpresaColName:  null });
-    if (colIdx === confirmedTelIdx)      setState({ confirmedTelIdx:      -1, confirmedTelColName:      null });
-    if (colIdx === confirmedPaisIdx)     setState({ confirmedPaisIdx:     -1, confirmedPaisColName:     null });
+    if (colIdx === confirmedTelIdx)      setState({ confirmedTelIdx:  -1, confirmedTelColName:  null, _userClearedTel:  true });
+    if (colIdx === confirmedPaisIdx)     setState({ confirmedPaisIdx: -1, confirmedPaisColName: null, _userClearedPais: true });
   } else if (fieldKey === 'email') {
     const { csv } = getState();
     setState({ colIdx, emailColName: csv?.headers[colIdx] ?? null });
@@ -612,7 +614,10 @@ function _onAssignColumn(colIdx, fieldKey) {
     const { csv } = getState();
     const keyMap  = { nombre: 'confirmedNombreIdx', apellido: 'confirmedApellidoIdx', empresa: 'confirmedEmpresaIdx', tel: 'confirmedTelIdx', pais: 'confirmedPaisIdx' };
     const nameMap = { nombre: 'confirmedNombreColName', apellido: 'confirmedApellidoColName', empresa: 'confirmedEmpresaColName', tel: 'confirmedTelColName', pais: 'confirmedPaisColName' };
-    setState({ [keyMap[fieldKey]]: colIdx, [nameMap[fieldKey]]: csv?.headers[colIdx] ?? null });
+    const clearFlags = fieldKey === 'pais' ? { _userClearedPais: false }
+                     : fieldKey === 'tel'  ? { _userClearedTel:  false }
+                     : {};
+    setState({ [keyMap[fieldKey]]: colIdx, [nameMap[fieldKey]]: csv?.headers[colIdx] ?? null, ...clearFlags });
   }
   _refreshFieldSelect();
 }
@@ -1322,6 +1327,34 @@ function setupRulesPanel() {
   renderSuffixList();
 }
 
+function _renderEmailColSelector(sbId, atbId, tbodyId, goFn) {
+  const { csv } = getState();
+  const atb = $(atbId);
+  if (atb) atb.style.display = 'none';
+  if (tbodyId) { const tb = $(tbodyId); if (tb) tb.innerHTML = ''; }
+  const sb = $(sbId);
+  if (!sb) return;
+  const opts = [
+    `<option value="-1">${t('country.none')}</option>`,
+    ...csv.headers.map((h, i) => `<option value="${i}">${esc(h || 'Col ' + (i + 1))}</option>`),
+  ].join('');
+  sb.innerHTML = `<span><span style="color:var(--red)">${t('val.missing_email')} <strong>${t('val.email_label')}.</strong> ${t('val.select_email')}</span>
+    <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:10px">
+      <label style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--t2)">
+        ${t('val.email_label')}
+        <select id="email-col-sel-tmp" style="min-width:180px">${opts}</select>
+      </label>
+      <button class="btn btn-p btn-sm" id="btn-email-col-confirm">${t('country.confirm')}</button>
+    </div></span>`;
+  $('btn-email-col-confirm')?.addEventListener('click', () => {
+    const idx = parseInt($('email-col-sel-tmp').value);
+    if (idx >= 0) setState({ colIdx: idx, emailColName: csv.headers[idx] || null });
+    sb.innerHTML = '';
+    if (atb) atb.style.display = '';
+    goFn();
+  });
+}
+
 // ════════════════════════════════════════════════════════════
 //  PASO 3 — VALIDACIÓN
 // ════════════════════════════════════════════════════════════
@@ -1331,6 +1364,7 @@ async function goStep3() {
   setWizardStep('validation');
   show('c3'); unlock('c3');
   const { csv, colIdx, learning } = getState();
+  if (colIdx < 0) { _renderEmailColSelector('sb3', 'atb3', 'vbody', goStep3); _scrollToCard($('c3')); return; }
 
   const skipTranslit = !shouldSuggestFixType(learning, 'translit');
   const emailCol = csv.rows.map(r => (r[colIdx] || '').trim());
@@ -1370,6 +1404,7 @@ async function goStep4() {
   setWizardStep('domains');
   show('c4'); unlock('c4');
   const { csv, colIdx, valItems, whitelist, whitelistPatterns, customRules, defaultDomainRules, learning, defaultRuleExclusions, suffixRules } = getState();
+  if (colIdx < 0) { _renderEmailColSelector('sb4', 'atb4', 'dbody', goStep4); _scrollToCard($('c4')); return; }
 
   // Pase 1 — corrección de terminaciones (sobre el email ya formateado del paso 3)
   const validTldSet  = new Set(suffixRules?.validTlds || []);
@@ -2092,18 +2127,22 @@ function goStep8() {
   }
 
   const headers = csv.headers;
-  const { confirmedPaisIdx: cPais, confirmedTelIdx: cTel } = getState();
-  const paisIdx = (cPais != null && cPais >= 0) ? cPais : headers.findIndex(h => {
-    const n = _normHeader(h);
-    return n.includes('pais') || n.includes('country') || n.includes('nacion');
-  });
-  const telIdx = (cTel != null && cTel >= 0) ? cTel : headers.findIndex(h => {
-    const n = _normHeader(h);
-    return n.includes('telefono') || n.includes('phone') || n.includes('celular') || n.includes('whatsapp') || n.includes('movil') || n.includes('móvil');
-  });
+  const { confirmedPaisIdx: cPais, confirmedTelIdx: cTel, _userClearedPais, _userClearedTel } = getState();
+  const paisIdx = _userClearedPais  ? -1
+                : (cPais != null && cPais >= 0) ? cPais
+                : headers.findIndex(h => {
+                    const n = _normHeader(h);
+                    return n.includes('pais') || n.includes('country') || n.includes('nacion');
+                  });
+  const telIdx  = _userClearedTel   ? -1
+                : (cTel != null && cTel >= 0) ? cTel
+                : headers.findIndex(h => {
+                    const n = _normHeader(h);
+                    return n.includes('telefono') || n.includes('phone') || n.includes('celular') || n.includes('whatsapp') || n.includes('movil') || n.includes('móvil');
+                  });
 
-  if (paisIdx === -1 && telIdx === -1) {
-    renderStep8ColSelector(headers, _handleStep8ColsConfirmed);
+  if (paisIdx < 0 || telIdx < 0) {
+    renderStep8ColSelector(headers, _handleStep8ColsConfirmed, paisIdx, telIdx);
   } else {
     _runStep8Analysis(paisIdx, telIdx);
     resetStep8Filter();

@@ -190,7 +190,7 @@ Para archivos **XLSX**: se lee la primera hoja. Las fórmulas muestran el valor 
 
 ### Paso B — Selección de campos
 
-Seleccioná qué columnas del archivo original querés conservar en el archivo de salida.
+Seleccioná qué columnas del archivo original querés conservar en el archivo de salida. También podés asignar el rol de cada columna (Email, Nombre, Apellido, Empresa, Teléfono, País) usando el botón **Asignar ▾** que aparece en cada chip — incluye columnas vacías y columnas agregadas desde el Editor.
 
 ### Paso C — Análisis del Archivo
 
@@ -254,7 +254,7 @@ Normaliza el campo de empresa: detecta valores vacíos, limpia entradas "basura"
 
 ### País y teléfono
 
-Detecta el país del contacto a partir del dominio del email o el campo de país, y formatea los números al estándar internacional (ej: `+54 9 11 1234-5678`).
+Detecta el país del contacto a partir del dominio del email o el campo de país, y formatea los números al estándar internacional (ej: `+54 9 11 1234-5678`). Si alguna de las dos columnas no se detecta automáticamente (o fue des-asignada en el Paso B), el módulo muestra un selector para elegirla o descartarla sin salir del paso.
 
 ### Homologación de campos
 

@@ -94,6 +94,9 @@ const DICT = {
     'val.select_all':       '✓ Todos',
     'val.select_none':      '✗ Ninguno',
     'val.corrections_sel':  (sel, total) => `<strong>${sel}</strong> de <strong>${total}</strong> correcciones seleccionadas`,
+    'val.missing_email':    'Falta asignar columna',
+    'val.email_label':      'Email',
+    'val.select_email':     'Seleccioná la que corresponde o dejá — ninguna — para saltar.',
 
     // ── Paso 4: dominios ──────────────────────────────────────
     'dom.title':            'Dominios syntax',
@@ -179,6 +182,9 @@ const DICT = {
     'country.source':       'Fuente',
     'country.no_auto':      'No se detectaron columnas de <strong>País</strong> ni <strong>Teléfono</strong> automáticamente.',
     'country.select_hint':  'Seleccioná cuáles corresponden (o dejá "ninguna" para saltar):',
+    'country.missing_col':  'Falta asignar columna',
+    'country.select_or_none': 'Seleccioná la que corresponda o dejá — ninguna — para no incluir.',
+    'country.and':          'y',
     'country.mark_all':     'Marcar / desmarcar todo',
     'country.select_all':   '✓ Todos',
     'country.select_none':  '✗ Ninguno',
@@ -873,6 +879,9 @@ const DICT = {
     'val.select_all':       '✓ All',
     'val.select_none':      '✗ None',
     'val.corrections_sel':  (sel, total) => `<strong>${sel}</strong> of <strong>${total}</strong> corrections selected`,
+    'val.missing_email':    'Missing column assignment:',
+    'val.email_label':      'Email',
+    'val.select_email':     'Select the corresponding one or leave — none — to skip.',
 
     // ── Step 4: domains ───────────────────────────────────────
     'dom.title':            'DOMAINS SYNTAX',
@@ -958,6 +967,9 @@ const DICT = {
     'country.source':       'Source',
     'country.no_auto':      '<strong>Country</strong> and <strong>Phone</strong> columns were not automatically detected.',
     'country.select_hint':  'Select which ones apply (or leave "none" to skip):',
+    'country.missing_col':  'Missing column assignment:',
+    'country.select_or_none': 'Select the corresponding one or leave "none" to skip.',
+    'country.and':          'and',
     'country.mark_all':     'Select / deselect all',
     'country.select_all':   '✓ All',
     'country.select_none':  '✗ None',
