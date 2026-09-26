@@ -1,7 +1,7 @@
 {
   "name": "datab-flow",
   "version": "2.0.0",
-  "description": "dataB Flow · Cleaning | Transformation | Governance — Email list cleaning and transformation tool",
+  "description": "DataB Flow · Cleaning | Transformation | Governance — Email list cleaning and transformation tool",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

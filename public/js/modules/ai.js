@@ -1,6 +1,6 @@
 /**
  * ai.js — Cliente reutilizable para llamadas a Ollama vía proxy
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 // DEFAULT_PROMPT y DEFAULT_FIELD_PROMPT son fallbacks de último recurso cuando ai-prompts-default.json

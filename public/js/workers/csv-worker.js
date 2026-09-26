@@ -1,7 +1,7 @@
 /**
  * csv-worker.js — Web Worker para procesamiento pesado de CSV
  * Corre en hilo separado para no bloquear la UI.
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { autoFixEmail } from '../modules/validator.js';

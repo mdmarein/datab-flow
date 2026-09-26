@@ -1,6 +1,6 @@
 /**
  * duplicates.js — Detección de filas duplicadas
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 /**

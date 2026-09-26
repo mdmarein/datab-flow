@@ -8,7 +8,7 @@
  * 4. Generar insights comparativos entre sesiones
  * 5. Promover correcciones frecuentes a reglas sugeridas
  *
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { t } from './i18n.js';

@@ -1,6 +1,6 @@
 /**
  * llm-config.js — Modal de gestión de proveedores LLM
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { $, show, hide, esc, toast } from './utils.js';

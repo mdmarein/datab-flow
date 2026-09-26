@@ -1,6 +1,6 @@
 /**
  * utils.js — Helpers de DOM, formato y UI
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { t } from './i18n.js';

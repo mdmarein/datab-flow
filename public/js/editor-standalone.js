@@ -1,6 +1,6 @@
 /**
  * editor-standalone.js — Editor CSV en ventana independiente
- * dataB Flow · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · © 2026 mdmarein · GNU AGPLv3
  *
  * Se conecta a la ventana principal via BroadcastChannel.
  * Las operaciones se aplican localmente (feedback inmediato)

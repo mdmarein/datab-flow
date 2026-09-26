@@ -1,6 +1,6 @@
 /**
  * country.js — Detección de país y formateo de teléfono
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 // Mapas internos (se construyen con buildCountryMaps)

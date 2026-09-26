@@ -1,6 +1,6 @@
 /**
  * prep.js — Funciones puras de transformación de CSV para el Editor
- * dataB Flow · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · © 2026 mdmarein · GNU AGPLv3
  *
  * Todas las funciones son inmutables: reciben un csv y devuelven uno nuevo.
  * csv = { headers: string[], rows: string[][], sep: string }

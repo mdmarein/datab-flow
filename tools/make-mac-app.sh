@@ -1,6 +1,6 @@
 #!/bin/bash
 # ─────────────────────────────────────────────────────────────
-#  dataB Flow — Crea "dataB Flow.app" en el Desktop (macOS)
+#  DataB Flow — Crea "DataB Flow.app" en el Desktop (macOS)
 #  Uso: bash tools/make-mac-app.sh
 # ─────────────────────────────────────────────────────────────
 
@@ -9,7 +9,7 @@ set -e
 # Directorio raíz del proyecto (donde está este script)
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
-APP_NAME="dataB Flow"
+APP_NAME="DataB Flow"
 DEST="$HOME/Desktop/${APP_NAME}.app"
 ICNS="$SCRIPT_DIR/icons/AppIcon.icns"
 
@@ -32,8 +32,8 @@ cat > "$DEST/Contents/Info.plist" << PLIST
   <key>CFBundleExecutable</key>      <string>datab-flow</string>
   <key>CFBundleIconFile</key>        <string>AppIcon</string>
   <key>CFBundleIdentifier</key>      <string>ai.multiplai.datab-flow</string>
-  <key>CFBundleName</key>            <string>dataB Flow</string>
-  <key>CFBundleDisplayName</key>     <string>dataB Flow</string>
+  <key>CFBundleName</key>            <string>DataB Flow</string>
+  <key>CFBundleDisplayName</key>     <string>DataB Flow</string>
   <key>CFBundleVersion</key>         <string>1.0</string>
   <key>CFBundleShortVersionString</key><string>1.0</string>
   <key>CFBundlePackageType</key>     <string>APPL</string>
@@ -58,7 +58,7 @@ for candidate in \$(which node 2>/dev/null) /usr/local/bin/node /opt/homebrew/bi
 done
 
 if [ -z "\$NODE" ]; then
-  osascript -e 'display alert "dataB Flow" message "No se encontró Node.js. Instalalo desde nodejs.org" as critical'
+  osascript -e 'display alert "DataB Flow" message "No se encontró Node.js. Instalalo desde nodejs.org" as critical'
   exit 1
 fi
 
@@ -83,7 +83,7 @@ for i in {1..16}; do
 done
 
 # Si no levantó, mostrar error
-osascript -e 'display alert "dataB Flow" message "El servidor no arrancó. Revisá server.log en el directorio del proyecto." as critical'
+osascript -e 'display alert "DataB Flow" message "El servidor no arrancó. Revisá server.log en el directorio del proyecto." as critical'
 exit 1
 LAUNCHER
 

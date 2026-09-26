@@ -1,7 +1,7 @@
 /**
  * parser.js — Parser y serializer CSV (RFC 4180)
  * Soporta: \n dentro de campos quoted, separador auto-detectado (, o ;)
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 /**

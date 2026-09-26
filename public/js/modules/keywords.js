@@ -2,7 +2,7 @@
  * keywords.js — Matching de palabras clave (test/junk) para email, nombre, apellido y empresa
  * Compartido entre el análisis previo (worker + fallback) y el paso real de eliminación,
  * para que el conteo del análisis coincida siempre con el resultado del paso.
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 // Dominio: keyword debe ser el label completo entre puntos (o compuesto de keywords).

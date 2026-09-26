@@ -1,6 +1,6 @@
 /**
  * validator.js — Validación RFC 2822 + auto-corrección
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { TRANSLIT_MAP, FIX_TYPES } from './config.js';

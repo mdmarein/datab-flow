@@ -1,6 +1,6 @@
 /**
  * csv-editor.js — Modal de edición de CSV (ventana principal)
- * dataB Flow · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { getState, setState, subscribe } from '../modules/state.js';

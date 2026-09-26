@@ -1,5 +1,5 @@
 /**
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  * Servidor HTTP local — sin dependencias npm
  * Requiere: Node.js >= 14
  */
@@ -705,7 +705,7 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, '127.0.0.1', () => {
   const addr = `http://localhost:${PORT}`;
-  console.log(`\n  dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3`);
+  console.log(`\n  DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3`);
   console.log(`  ───────────────────────────────────────────────────────────────────`);
   console.log(`  Servidor: ${addr}`);
   console.log(`  Datos:    ${DATA_DIR}`);

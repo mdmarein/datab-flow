@@ -1,6 +1,6 @@
 /**
  * state.js — Estado global con patrón observable
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 import { BASE_WHITELIST, BASE_JUNK_COMPANIES, DEFAULT_ENABLED_STEPS } from './config.js';

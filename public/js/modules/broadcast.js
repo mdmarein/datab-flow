@@ -1,6 +1,6 @@
 /**
  * broadcast.js — Sincronización en tiempo real entre ventanas via BroadcastChannel
- * dataB Flow · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · © 2026 mdmarein · GNU AGPLv3
  *
  * Protocolo de mensajes:
  *   REQUEST_STATE  → editor window pide el estado inicial

@@ -1,7 +1,7 @@
 /**
  * domains.js — Motor de corrección de dominios
  * Proceso de 3 pasos (fiel al workflow original del usuario)
- * dataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
+ * DataB Flow · Cleaning | Transformation | Governance · © 2026 mdmarein · GNU AGPLv3
  */
 
 /**

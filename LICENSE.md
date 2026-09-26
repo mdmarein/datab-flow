@@ -1,4 +1,4 @@
-dataB Flow · Cleaning | Transformation | Governance
+DataB Flow · Cleaning | Transformation | Governance
 Copyright (C) 2026 mdmarein
 https://github.com/mdmarein/datab-flow
 
