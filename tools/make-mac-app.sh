@@ -62,22 +62,24 @@ if [ -z "\$NODE" ]; then
   exit 1
 fi
 
-# Si ya hay algo en el puerto, solo abrir el browser
+# Detectar si ya había servidor corriendo y matarlo para reiniciar limpio
+ALREADY_RUNNING=false
 if lsof -i :\$PORT -t &>/dev/null 2>&1; then
-  open "\$URL"
-  exit 0
+  ALREADY_RUNNING=true
+  lsof -i :\$PORT -t | xargs kill -9 2>/dev/null || true
+  sleep 0.5
 fi
 
 # Arrancar el servidor en background
 cd "\$PROJECT_DIR"
 nohup "\$NODE" server.js >> "\$PROJECT_DIR/server.log" 2>&1 &
-SERVER_PID=\$!
 
 # Esperar a que el servidor esté listo (max 8 segundos)
 for i in {1..16}; do
   sleep 0.5
   if lsof -i :\$PORT -t &>/dev/null 2>&1; then
-    open "\$URL"
+    # Solo abrir browser si no había servidor antes (evita segunda pestaña)
+    [ "\$ALREADY_RUNNING" = false ] && open "\$URL"
     exit 0
   fi
 done
